@@ -1,0 +1,71 @@
+.form{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    float: right;
+    background-color: rgba(73, 83, 109, 0.7);
+    border-radius: 20px;
+    padding: 20px;
+    direction: rtl; 
+    text-align: right; 
+    margin-right: 30px;
+    width: 100%;
+    
+    }
+    
+    
+    
+    .title{
+    
+    
+        margin-bottom: 100px;
+    }
+    
+    body {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100vh;
+    
+        position: relative;
+        background: url('../../assets/image/img.jpg') center/cover no-repeat;
+      }
+    
+      body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(77, 77, 77, 0.1); 
+      }
+    
+    
+    
+    
+      .form h1 {
+        color: white;
+      }
+    
+  
+      .ant-form-item-label {
+        text-align: right;
+      }
+      .ant-checkbox-wrapper {
+        direction: rtl;
+        text-align: right;
+      }
+      .ant-btn {
+    
+        background-color: rgba(23, 26, 86, 1);
+      }
+    
+    
+      @media (max-width: 768px) {
+        .form {
+          margin-right: 15px;
+        }
+      }
