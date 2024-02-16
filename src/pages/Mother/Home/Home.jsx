@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Home.css";
 import {
   CNavbar,
   CContainer,
@@ -18,6 +17,9 @@ import {
   CFormInput,
   CButton,
 } from "@coreui/react";
+import "./Home.css";
+
+import CardArticle from "../../../component/article/Article";
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
@@ -29,10 +31,10 @@ const Home = () => {
 
   return (
     <div className="home">
-      <CNavbar expand="lg" colorScheme="light" className="bg-light fixed-top">
+      <CNavbar expand="lg" colorScheme="light" className="bg-dark fixed-top">
         <CContainer fluid>
-          <CNavbarBrand href="#">تسجيل الخروج</CNavbarBrand>
-          <CNavbarToggler onClick={() => setVisible(!visible)} />
+          <CNavbarBrand className="text-white" href="#">تسجيل الخروج</CNavbarBrand>
+          <CNavbarToggler onClick={() => setVisible(!visible)} /> {/* Add CNavbarToggler for mobile */}
           <CCollapse className="navbar-collapse" visible={visible}>
             <CNavbarNav className="ms-auto">
               <CNavItem>
@@ -40,21 +42,33 @@ const Home = () => {
                   href="#"
                   active={activeNavItem === "notes"}
                   onClick={() => handleNavItemClick("notes")}
+                  className="text-white" // Add text-white class to each CNavLink
                 >
                   اضافة ملاحظات
                 </CNavLink>
               </CNavItem>
               <CDropdown variant="nav-item" popper={false}>
-                <CDropdownToggle color="secondary">ادارة الموعيد</CDropdownToggle>
+                <CDropdownToggle color="secondary right" className="text-white">
+                  ادارة الموعيد
+                </CDropdownToggle>
                 <CDropdownMenu>
-                  <CDropdownItem href="#" onClick={() => handleNavItemClick("action1")}>
+                  <CDropdownItem
+                    href="#"
+                    onClick={() => handleNavItemClick("action1")}
+                  >
                     إجراء
                   </CDropdownItem>
-                  <CDropdownItem href="#" onClick={() => handleNavItemClick("action2")}>
+                  <CDropdownItem
+                    href="#"
+                    onClick={() => handleNavItemClick("action2")}
+                  >
                     إجراء آخر
                   </CDropdownItem>
                   <CDropdownDivider />
-                  <CDropdownItem href="#" onClick={() => handleNavItemClick("other")}>
+                  <CDropdownItem
+                    href="#"
+                    onClick={() => handleNavItemClick("other")}
+                  >
                     شيء آخر هنا
                   </CDropdownItem>
                 </CDropdownMenu>
@@ -64,6 +78,7 @@ const Home = () => {
                   href="#"
                   active={activeNavItem === "health"}
                   onClick={() => handleNavItemClick("health")}
+                  className="text-white" // Add text-white class to each CNavLink
                 >
                   الوضع الصحي للطفل
                 </CNavLink>
@@ -73,6 +88,7 @@ const Home = () => {
                   href="#"
                   active={activeNavItem === "home"}
                   onClick={() => handleNavItemClick("home")}
+                  className="text-white" // Add text-white class to each CNavLink
                 >
                   الصفحة الرئيسية
                 </CNavLink>
@@ -82,6 +98,8 @@ const Home = () => {
           </CCollapse>
         </CContainer>
       </CNavbar>
+      <CardArticle className="card-article" />
+   
     </div>
   );
 };
