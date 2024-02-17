@@ -5,10 +5,7 @@ import Home from './pages/Mother/Home/Home';
 function App() {
   return (
     <div className="App">
-
       <Home/>
-
-
     </div>
   );
 }

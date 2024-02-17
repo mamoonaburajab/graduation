@@ -18,88 +18,96 @@ import {
   CButton,
 } from "@coreui/react";
 import "./Home.css";
-
 import CardArticle from "../../../component/article/Article";
+import Slider from "../../../component/slider/Slider";
+import { Article } from "@mui/icons-material";
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
-  const [activeNavItem, setActiveNavItem] = useState("home"); // State to track active item
-
+  const [activeNavItem, setActiveNavItem] = useState("home");
   const handleNavItemClick = (itemName) => {
     setActiveNavItem(itemName);
   };
 
   return (
     <div className="home">
-      <CNavbar expand="lg" colorScheme="light" className="bg-dark fixed-top">
-        <CContainer fluid>
-          <CNavbarBrand className="text-white" href="#">تسجيل الخروج</CNavbarBrand>
-          <CNavbarToggler onClick={() => setVisible(!visible)} /> {/* Add CNavbarToggler for mobile */}
-          <CCollapse className="navbar-collapse" visible={visible}>
-            <CNavbarNav className="ms-auto">
-              <CNavItem>
-                <CNavLink
-                  href="#"
-                  active={activeNavItem === "notes"}
-                  onClick={() => handleNavItemClick("notes")}
-                  className="text-white" // Add text-white class to each CNavLink
-                >
-                  اضافة ملاحظات
-                </CNavLink>
-              </CNavItem>
-              <CDropdown variant="nav-item" popper={false}>
-                <CDropdownToggle color="secondary right" className="text-white">
-                  ادارة الموعيد
-                </CDropdownToggle>
-                <CDropdownMenu>
-                  <CDropdownItem
+      <div className="">
+        <CNavbar expand="lg" colorScheme="light" className="bg-dark fixed-top">
+          <CContainer fluid>
+            <CNavbarBrand className="text-white" href="#">
+              تسجيل الخروج
+            </CNavbarBrand>
+            <CNavbarToggler onClick={() => setVisible(!visible)} />
+            <CCollapse className="navbar-collapse" visible={visible}>
+              <CNavbarNav className="ms-auto">
+                <CNavItem>
+                  <CNavLink
                     href="#"
-                    onClick={() => handleNavItemClick("action1")}
+                    active={activeNavItem === "notes"}
+                    onClick={() => handleNavItemClick("notes")}
+                    className="text-white"
                   >
-                    إجراء
-                  </CDropdownItem>
-                  <CDropdownItem
+                    اضافة ملاحظات
+                  </CNavLink>
+                </CNavItem>
+                <CDropdown variant="nav-item" popper={false}>
+                  <CDropdownToggle
+                    color="secondary right"
+                    className="text-white"
+                  >
+                    ادارة الموعيد
+                  </CDropdownToggle>
+                  <CDropdownMenu>
+                    <CDropdownItem
+                      href="#"
+                      onClick={() => handleNavItemClick("action1")}
+                    >
+                      إجراء
+                    </CDropdownItem>
+                    <CDropdownItem
+                      href="#"
+                      onClick={() => handleNavItemClick("action2")}
+                    >
+                      إجراء آخر
+                    </CDropdownItem>
+                    <CDropdownDivider />
+                    <CDropdownItem
+                      href="#"
+                      onClick={() => handleNavItemClick("other")}
+                    >
+                      شيء آخر هنا
+                    </CDropdownItem>
+                  </CDropdownMenu>
+                </CDropdown>
+                <CNavItem>
+                  <CNavLink
                     href="#"
-                    onClick={() => handleNavItemClick("action2")}
+                    active={activeNavItem === "health"}
+                    onClick={() => handleNavItemClick("health")}
+                    className="text-white"
                   >
-                    إجراء آخر
-                  </CDropdownItem>
-                  <CDropdownDivider />
-                  <CDropdownItem
+                    الوضع الصحي للطفل
+                  </CNavLink>
+                </CNavItem>
+                <CNavItem>
+                  <CNavLink
                     href="#"
-                    onClick={() => handleNavItemClick("other")}
+                    active={activeNavItem === "home"}
+                    onClick={() => handleNavItemClick("home")}
+                    className="text-white"
                   >
-                    شيء آخر هنا
-                  </CDropdownItem>
-                </CDropdownMenu>
-              </CDropdown>
-              <CNavItem>
-                <CNavLink
-                  href="#"
-                  active={activeNavItem === "health"}
-                  onClick={() => handleNavItemClick("health")}
-                  className="text-white" // Add text-white class to each CNavLink
-                >
-                  الوضع الصحي للطفل
-                </CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink
-                  href="#"
-                  active={activeNavItem === "home"}
-                  onClick={() => handleNavItemClick("home")}
-                  className="text-white" // Add text-white class to each CNavLink
-                >
-                  الصفحة الرئيسية
-                </CNavLink>
-              </CNavItem>
-            </CNavbarNav>
-            <CForm className="d-flex"></CForm>
-          </CCollapse>
-        </CContainer>
-      </CNavbar>
-      <CardArticle className="card-article" />
-   
+                    الصفحة الرئيسية
+                  </CNavLink>
+                </CNavItem>
+              </CNavbarNav>
+              <CForm className="d-flex"></CForm>
+            </CCollapse>
+          </CContainer>
+        </CNavbar>
+        <Slider />
+        <CardArticle/>
+      </div>
+
     </div>
   );
 };
