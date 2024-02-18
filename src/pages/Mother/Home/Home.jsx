@@ -105,9 +105,8 @@ const Home = () => {
           </CContainer>
         </CNavbar>
         <Slider />
-        <CardArticle/>
+        <CardArticle />
       </div>
-
     </div>
   );
 };

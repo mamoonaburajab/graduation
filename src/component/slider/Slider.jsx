@@ -3,7 +3,7 @@ import Carousel from "react-bootstrap/Carousel";
 import img from "../../assets/image/pexels-anna-tarazevich-5196815.jpg";
 import img1 from "../../assets/image/pexels-karolina-grabowska-4021779.jpg";
 import img2 from "../../assets/image/pexels-edward-jenner-4033148.jpg";
-import './Slider.css'
+import "./Slider.css";
 
 function Slider() {
   const [index, setIndex] = useState(0);
