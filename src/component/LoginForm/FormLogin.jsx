@@ -1,50 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
-import './FormLogin.css'
-const FormLogin = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
+import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
+import "./FormLogin.css";
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+const LoginForm = () => {
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+
+  const onFinish = async (values) => {
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:3015/login", values);
+
+      if (response.data.success) {
+        // Redirect to the home page upon successful login
+        navigate("/mother/home");
+      } else {
+        // Handle login error (e.g., display an error message)
+      }
+    } catch (error) {
+      console.error("Login error:", error.message);
+      // Handle other errors
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div>
-      <Form
-        name="login-form"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        style={{ width: "250px", height: "300px", margin: "auto" }}
-      >
-        <Form.Item
-          name="username"
-          rules={[{ required: true, message: "Please input your username!" }]}
-        >
-          <Input placeholder="اسم المستخدم" />
-        </Form.Item>
+    <Form
+      name="login-form"
+      onFinish={onFinish}
+      style={{ width: "250px", height: "300px", margin: "auto" }}
+    >
+      <Form.Item name="username">
+        <Input placeholder="Username" />
+      </Form.Item>
 
-        <Form.Item
-          name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
-        >
-          <Input.Password placeholder="كلمة المرور" />
-        </Form.Item>
+      <Form.Item name="password">
+        <Input.Password placeholder="Password" />
+      </Form.Item>
 
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            style={{ width: "100%", fontSize: "16px" }}
-          >
-            إرسال
-          </Button>
-        </Form.Item>
-      </Form>
-    </div>
+      <Form.Item>
+        <Button
+          type="primary"
+          htmlType="submit"
+          style={{ width: "100%", fontSize: "16px" }}
+          loading={loading}
+        >
+          Login
+        </Button>
+      </Form.Item>
+    </Form>
   );
 };
 
-export default FormLogin;
+export default LoginForm;

@@ -3,3 +3,30 @@
   width: 100%;
   height: 200vh;
 }
+.articleCard{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.nav-link{
+  height: 50px;
+  position: relative;
+}
+.link-website{
+  background-color: rgb(110, 114, 117);
+  margin-top: 65px;
+  
+}
+.link-website :hover{
+  color: blue;
+}
+.link-website a{
+  color: aliceblue;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .link-website {
+    margin-top: 55px;
+  }
+}

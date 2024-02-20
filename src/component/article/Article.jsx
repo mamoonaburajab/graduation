@@ -1,27 +1,27 @@
-import React from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-
+import React from "react";
+import { styled } from "@mui/material/styles";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Collapse from "@mui/material/Collapse";
+import Avatar from "@mui/material/Avatar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import { red } from "@mui/material/colors";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import './CardArticle.css';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
+  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
+  transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
   }),
 }));
@@ -34,7 +34,7 @@ const HealthCard = () => {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className="card">
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="baby">
@@ -58,7 +58,8 @@ const HealthCard = () => {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary" textAlign="right">
-          تأكيد صحة الطفل والأم أمر حيوي لضمان نموهما السليم وسعادتهما. فيما يلي بعض النصائح للعناية بصحة الطفل:
+          تأكيد صحة الطفل والأم أمر حيوي لضمان نموهما السليم وسعادتهما. فيما يلي
+          بعض النصائح للعناية بصحة الطفل:
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -81,7 +82,8 @@ const HealthCard = () => {
         <CardContent>
           <Typography paragraph>نصائح للعناية بصحة الطفل:</Typography>
           <Typography paragraph>
-            1. اتباع نظام غذائي صحي يحتوي على العناصر الغذائية الضرورية لنموهم السليم.
+            1. اتباع نظام غذائي صحي يحتوي على العناصر الغذائية الضرورية لنموهم
+            السليم.
           </Typography>
           <Typography paragraph>
             2. توفير بيئة نظيفة وآمنة للطفل لتجنب المخاطر.
@@ -96,7 +98,8 @@ const HealthCard = () => {
             5. الاستماع والاستجابة لاحتياجات الطفل بشكل فعّال.
           </Typography>
           <Typography>
-            اتباع هذه النصائح يسهم في بناء أساس قوي لصحة الطفل والأم وتحقيق رفاهية العائلة.
+            اتباع هذه النصائح يسهم في بناء أساس قوي لصحة الطفل والأم وتحقيق
+            رفاهية العائلة.
           </Typography>
         </CardContent>
       </Collapse>
