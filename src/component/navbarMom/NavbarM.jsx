@@ -36,7 +36,7 @@ const NavbarM = () => {
             <CNavbarNav className="ms-auto">
               <CNavItem>
                 <CNavLink
-                  href="#"
+                  href="/mother/Note"
                   active={activeNavItem === "notes"}
                   onClick={() => handleNavItemClick("notes")}
                   className="text-white"
@@ -53,26 +53,26 @@ const NavbarM = () => {
                     href="#"
                     onClick={() => handleNavItemClick("action1")}
                   >
-                    إجراء
+                    مشاهدة المواعيد
                   </CDropdownItem>
                   <CDropdownItem
                     href="#"
                     onClick={() => handleNavItemClick("action2")}
                   >
-                    إجراء آخر
+                    حجز موعد جديد
                   </CDropdownItem>
                   <CDropdownDivider />
                   <CDropdownItem
                     href="#"
                     onClick={() => handleNavItemClick("other")}
                   >
-                    شيء آخر هنا
+                    الغاء موعد
                   </CDropdownItem>
                 </CDropdownMenu>
               </CDropdown>
               <CNavItem>
                 <CNavLink
-                  href="#"
+                  href="/mother/MotherChildCard"
                   active={activeNavItem === "health"}
                   onClick={() => handleNavItemClick("health")}
                   className="text-white"

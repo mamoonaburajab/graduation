@@ -1,0 +1,10 @@
+.btn-child {
+  display: flex;
+  margin: 20px;
+  width: 180px;
+  justify-content: center;
+}
+.link-style {
+  text-decoration: none;
+  color: aliceblue;
+}
