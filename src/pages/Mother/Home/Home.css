@@ -8,6 +8,7 @@
   flex-direction: row;
   justify-content: flex-end;
   flex-wrap: wrap;
+  margin-right: 80px;
 }
 .nav-link{
   height: 50px;
@@ -29,4 +30,8 @@
   .link-website {
     margin-top: 55px;
   }
+  .articleCard{
+    margin-right: 10px;
+  }
+  
 }

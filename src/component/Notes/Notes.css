@@ -1,32 +1,56 @@
 .notes-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  direction: rtl; /* Right-to-left direction */
+}
+
+.notes-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  color: #fff;
+  direction: ltr; 
+  background-color: rgba(0, 0, 0, 0.856);/* Left-to-right direction for the content inside the card */
+}
+
+.notes-heading {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.notes-form {
+  width: 100%;
+}
+
+.form-item {
+  margin-bottom: 20px;
+}
+
+.custom-text {
+  color: #f7eeee;
+  margin-bottom: 8px;
+  float: right;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #ffffff;
+  color: black;
+}
+
+/* Media query for iPhone */
+@media only screen and (max-width: 767px) {
+  .notes-container {
+    margin-top: -150px;
   }
-  
-  .notes-heading {
-    color: #1890ff;
-    margin-bottom: 20px;
-  }
-  
-  .notes-form {
-    width: 100%;
-  }
-  
-  .form-item {
-    margin-bottom: 16px;
-  }
-  
-  .input-field {
-    width: 100%;
-  }
-  
-  .submit-button {
-    width: 100%;
-  }
-  
+}

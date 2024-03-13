@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   CNavbarToggler,
   CCollapse,
@@ -7,21 +6,23 @@ import {
   CNavItem,
   CNavLink,
   CNavbar,
-  CDropdown,
-  CForm,
   CContainer,
   CNavbarBrand,
+  CForm,
+  CDropdown,
   CDropdownToggle,
   CDropdownMenu,
   CDropdownItem,
   CDropdownDivider,
 } from "@coreui/react";
+import "./NavbarM";
 const NavbarM = () => {
   const [visible, setVisible] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState("/mother/home");
 
   const handleNavItemClick = (itemName) => {
     setActiveNavItem(itemName);
+    setVisible(false); // Close the menu after clicking an item on small devices
   };
 
   return (
@@ -32,8 +33,8 @@ const NavbarM = () => {
             تسجيل الخروج
           </CNavbarBrand>
           <CNavbarToggler onClick={() => setVisible(!visible)} />
-          <CCollapse className="navbar-collapse" visible={visible}>
-            <CNavbarNav className="ms-auto">
+          <CCollapse className="navbar-collapse " visible={visible}>
+            <CNavbarNav className="ms-auto ·">
               <CNavItem>
                 <CNavLink
                   href="/mother/Note"
@@ -50,20 +51,20 @@ const NavbarM = () => {
                 </CDropdownToggle>
                 <CDropdownMenu>
                   <CDropdownItem
-                    href="#"
+                    href="/Mother/ViewApp"
                     onClick={() => handleNavItemClick("action1")}
                   >
                     مشاهدة المواعيد
                   </CDropdownItem>
                   <CDropdownItem
-                    href="#"
+                    href="/mother/Appointment"
                     onClick={() => handleNavItemClick("action2")}
                   >
                     حجز موعد جديد
                   </CDropdownItem>
                   <CDropdownDivider />
                   <CDropdownItem
-                    href="#"
+                    href=""
                     onClick={() => handleNavItemClick("other")}
                   >
                     الغاء موعد
@@ -82,7 +83,7 @@ const NavbarM = () => {
               </CNavItem>
               <CNavItem>
                 <CNavLink
-                  href="#"
+                  href="home"
                   active={activeNavItem === "home"}
                   onClick={() => handleNavItemClick("home")}
                   className="text-white"
@@ -100,3 +101,4 @@ const NavbarM = () => {
 };
 
 export default NavbarM;
+

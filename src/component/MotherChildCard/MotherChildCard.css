@@ -8,3 +8,11 @@
   text-decoration: none;
   color: aliceblue;
 }
+.conta{
+  margin-top: 30px;
+}
+@media only screen and (max-width: 767px) {
+  .conta {
+    margin-right: 30px;
+  }
+}

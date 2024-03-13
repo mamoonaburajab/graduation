@@ -1,9 +1,18 @@
 import Card from "react-bootstrap/Card";
+import React, { useEffect, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
+import axios from "axios";
 import "./ChildCard.css";
+import NavbarM from "../navbarMom/NavbarM";
 function ChildCard() {
-
+  const userId = localStorage.getItem("userId");
+  const [childData, setChildData] = useState(null);
   return (
+    <div>
+    <div>
+      <NavbarM/>
+    </div>
+    <div>
     <Card style={{ width: "18rem", height: "36rem" }} className="card-child">
       <Card.Img
         variant="top"
@@ -14,6 +23,7 @@ function ChildCard() {
         <Card.Title>اسم الطفل</Card.Title>
         <Card.Text>: رقم الهوية</Card.Text>
         <Card.Text>: العمر</Card.Text>
+        <Card.Text>{localStorage.userID}</Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>:الوزن</ListGroup.Item>
@@ -24,6 +34,8 @@ function ChildCard() {
         <ListGroup.Item>: الحديد</ListGroup.Item>
       </ListGroup>
     </Card>
+    </div>
+    </div>
   );
 }
 

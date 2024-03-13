@@ -4,8 +4,9 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  height: 420px;
+  height: 450px;
   margin: 25px;
+  
 }
 
 .card:hover {

@@ -4,9 +4,15 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import "./MotherChildCard.css";
+import NavbarM from "../navbarMom/NavbarM";
 
 function MotherChildCard() {
   return (
+    <div>
+    <div>
+      <NavbarM/>
+    </div>
+    <div className="conta"> 
     <Card style={{ width: "18rem", height: "30rem" }} className="card-child">
       <Card.Img
         variant="top"
@@ -33,6 +39,9 @@ function MotherChildCard() {
         </Button>
       </Card.Body>
     </Card>
+    </div>
+    
+    </div>
   );
 }
 
