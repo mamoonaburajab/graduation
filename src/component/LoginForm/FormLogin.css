@@ -12,9 +12,15 @@
   text-align: right;
   margin-right: 20px;
   position: relative;
-  height: 470px;
+  height: 530px;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 80px;
+}
+.Select-Opt{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 768px) {

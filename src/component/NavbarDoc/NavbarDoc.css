@@ -1,0 +1,31 @@
+@media (max-width: 767px) {
+    .navbar-collapse {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .navbar-nav {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      margin-right: 90px;
+    }
+  
+  
+  }
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .navbar-collapse {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      .navbar-nav {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin-right: 90px;
+      }
+}

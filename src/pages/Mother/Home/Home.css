@@ -17,10 +17,15 @@
 .link-website{
   background-color: rgb(110, 114, 117);
   margin-top: 65px;
+  color: aliceblue;
   
 }
-.link-website :hover{
-  color: blue;
+.link-website-btn{
+  color: aliceblue;
+}
+.link-website-btn:hover{
+  color: #070b85;
+  transition: color 0.5s ease-in-out;
 }
 .link-website a{
   color: aliceblue;

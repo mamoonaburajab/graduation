@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  direction: rtl; /* Right-to-left direction */
+  direction: rtl; 
 }
 
 .notes-card {
@@ -16,7 +16,10 @@
   background-color: #fff;
   color: #fff;
   direction: ltr; 
-  background-color: rgba(0, 0, 0, 0.856);/* Left-to-right direction for the content inside the card */
+  background-color: #0F1035;
+  margin-top: 150px;/* Right-to-left direction */
+
+  /* background-color: rgba(0, 0, 0, 0.856);Left-to-right direction for the content inside the card */
 }
 
 .notes-heading {

@@ -3,9 +3,11 @@
   margin: 20px;
   width: 180px;
   justify-content: center;
+  background-color: #00224D;
 }
 .link-style {
   text-decoration: none;
+  
   color: aliceblue;
 }
 .conta{

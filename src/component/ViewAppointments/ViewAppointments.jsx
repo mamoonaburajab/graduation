@@ -55,7 +55,7 @@ const data = [
     age: 10,
     day: "الاحد",
     date:"10/5/2020", // New York No. 1 Lake Park
-    tags: ["مؤجل"], // ['nice', 'developer']
+    tags: ["تم"], // ['nice', 'developer']
   },
   {
     key: "2",

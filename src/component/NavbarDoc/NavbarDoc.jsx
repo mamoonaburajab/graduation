@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./NavbarM.css";
+import "./NavbarDoc.css";
 import {
   CNavbarToggler,
   CCollapse,
@@ -17,7 +17,7 @@ import {
   CDropdownDivider,
 } from "@coreui/react";
 
-const NavbarM = () => {
+const NavbarD = () => {
   const [visible, setVisible] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState("/mother/home");
 
@@ -50,30 +50,9 @@ const NavbarM = () => {
                   onClick={() => handleNavItemClick("notes")}
                   className="text-white "
                 >
-                  اضافة ملاحظات
+                احصائيات
                 </CNavLink>
               </CNavItem>
-              <CDropdown variant="nav-item" popper={false}>
-                <CDropdownToggle color="secondary right" className="text-white">
-                  ادارة الموعيد
-                </CDropdownToggle>
-                <CDropdownMenu>
-                  <CDropdownItem
-                    href="/Mother/ViewApp"
-                    onClick={() => handleNavItemClick("action1")}
-                  >
-                    ادارة ومشاهدة المواعيد
-                  </CDropdownItem>
-
-                  <CDropdownDivider />
-                  <CDropdownItem
-                    href="/mother/Appointment"
-                    onClick={() => handleNavItemClick("other")}
-                  >
-                    حجز موعد جديد
-                  </CDropdownItem>
-                </CDropdownMenu>
-              </CDropdown>
               <CNavItem>
                 <CNavLink
                   href="/mother/MotherChildCard"
@@ -81,7 +60,17 @@ const NavbarM = () => {
                   onClick={() => handleNavItemClick("health")}
                   className="text-white"
                 >
-                  الوضع الصحي للطفل
+                    جدول المواعيد
+                </CNavLink>
+              </CNavItem>
+              <CNavItem>
+                <CNavLink
+                  href="/mother/MotherChildCard"
+                  active={activeNavItem === "health"}
+                  onClick={() => handleNavItemClick("health")}
+                  className="text-white"
+                >
+                    الاطفال
                 </CNavLink>
               </CNavItem>
               <CNavItem>
@@ -103,4 +92,4 @@ const NavbarM = () => {
   );
 };
 
-export default NavbarM;
+export default NavbarD;
