@@ -35,7 +35,7 @@ const NavbarD = () => {
     backgroundImage: 'radial-gradient(circle at 53.4% -80.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%)',
   }}
   className="fixed-top color"
->
+>       <h1>Hi</h1>
         <CContainer fluid>
           <CNavbarBrand className="text-white" href="/login">
             تسجيل الخروج
