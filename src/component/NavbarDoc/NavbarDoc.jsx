@@ -19,7 +19,7 @@ import {
 
 const NavbarD = () => {
   const [visible, setVisible] = useState(false);
-  const [activeNavItem, setActiveNavItem] = useState("/mother/home");
+  const [activeNavItem, setActiveNavItem] = useState("//home");
 
   const handleNavItemClick = (itemName) => {
     setActiveNavItem(itemName);
@@ -35,7 +35,7 @@ const NavbarD = () => {
     backgroundImage: 'radial-gradient(circle at 53.4% -80.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%)',
   }}
   className="fixed-top color"
->       <h1>Hi</h1>
+>     
         <CContainer fluid>
           <CNavbarBrand className="text-white" href="/login">
             تسجيل الخروج
@@ -45,7 +45,7 @@ const NavbarD = () => {
             <CNavbarNav className="ms-auto ·">
               <CNavItem>
                 <CNavLink
-                  href="/mother/Note"
+                  href=""
                   active={activeNavItem === "notes"}
                   onClick={() => handleNavItemClick("notes")}
                   className="text-white "
@@ -55,7 +55,7 @@ const NavbarD = () => {
               </CNavItem>
               <CNavItem>
                 <CNavLink
-                  href="/mother/MotherChildCard"
+                  href="//ChildCard"
                   active={activeNavItem === "health"}
                   onClick={() => handleNavItemClick("health")}
                   className="text-white"
@@ -65,7 +65,7 @@ const NavbarD = () => {
               </CNavItem>
               <CNavItem>
                 <CNavLink
-                  href="/mother/MotherChildCard"
+                  href="/doctor/child"
                   active={activeNavItem === "health"}
                   onClick={() => handleNavItemClick("health")}
                   className="text-white"

@@ -10,6 +10,7 @@ import BookAppointment from "./component/BookAppointment/BookAppointment";
 import ViewAppointments from "./component/ViewAppointments/ViewAppointments";
 import Vac from "./pages/Mother/Vac/Vac";
 import HomeD from "./pages/Doctor/HomeD/HomeD";
+import Child from "./pages/Doctor/child/Child";
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
           <Route path="/mother/ViewApp" element={<ViewAppointments/>}/>
           <Route path="/mother/MotherChildCard/Vac" element={<Vac/>}/>
           <Route path="/Doctor/Home" element={<HomeD/>}/>
+          <Route path="/Doctor/child" element={<Child/>}/>
         </Routes>
       </div>
     </Router>

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import img from "../../assets/image/pexels-anna-tarazevich-5196815.jpg";
-import img1 from "../../assets/image/pexels-karolina-grabowska-4021779.jpg";
-import img2 from "../../assets/image/pexels-edward-jenner-4033148.jpg";
+import img from "../../assets/image/1.jpg";
+import img1 from "../../assets/image/2.webp";
+import img2 from "../../assets/image/3.jpg";
 import "./Slider.css";
 
 function Slider() {
