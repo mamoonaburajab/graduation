@@ -28,14 +28,15 @@ const NavbarD = () => {
 
   return (
     <div id="color">
-  <CNavbar
-  expand="lg"
-  colorScheme="light"
-  style={{
-    backgroundImage: 'radial-gradient(circle at 53.4% -80.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%)',
-  }}
-  className="fixed-top color"
->     
+      <CNavbar
+        expand="lg"
+        colorScheme="light"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 53.4% -80.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%)",
+        }}
+        className="fixed-top color"
+      >
         <CContainer fluid>
           <CNavbarBrand className="text-white" href="/login">
             تسجيل الخروج
@@ -50,17 +51,17 @@ const NavbarD = () => {
                   onClick={() => handleNavItemClick("notes")}
                   className="text-white "
                 >
-                احصائيات
+                  احصائيات
                 </CNavLink>
               </CNavItem>
               <CNavItem>
                 <CNavLink
-                  href="//ChildCard"
+                  href="/Doctor/Appointments"
                   active={activeNavItem === "health"}
                   onClick={() => handleNavItemClick("health")}
                   className="text-white"
                 >
-                    جدول المواعيد
+                  جدول المواعيد
                 </CNavLink>
               </CNavItem>
               <CNavItem>
@@ -70,7 +71,7 @@ const NavbarD = () => {
                   onClick={() => handleNavItemClick("health")}
                   className="text-white"
                 >
-                    الاطفال
+                  الاطفال
                 </CNavLink>
               </CNavItem>
               <CNavItem>
