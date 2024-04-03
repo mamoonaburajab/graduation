@@ -1,7 +1,10 @@
-import React from "react";
+// SearchBar.js
+import React, { useState } from "react";
 import { AudioOutlined } from "@ant-design/icons";
 import { Input, Space } from "antd";
+
 const { Search } = Input;
+
 const suffix = (
   <AudioOutlined
     style={{
@@ -10,17 +13,27 @@ const suffix = (
     }}
   />
 );
-const onSearch = (value, _e, info) => console.log(info?.source, value);
-const SearchBar = () => (
-  <Space direction="vertical">
-    <Search
-      placeholder="ادخل نص البحث"
-      allowClear
-      enterButton="بحث"
-      size="large"
-      onSearch={onSearch}
-      style={{ direction: 'rtl' }}
-    />
-  </Space>
-);
+
+const SearchBar = ({ onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = value => {
+    setSearchQuery(value);
+    onSearch(value);
+  };
+
+  return (
+    <Space direction="vertical">
+      <Search
+        placeholder="ادخل نص البحث"
+        allowClear
+        enterButton="بحث"
+        size="large"
+        onSearch={handleSearch}
+        style={{ direction: 'rtl' }}
+      />
+    </Space>
+  );
+};
+
 export default SearchBar;

@@ -8,88 +8,70 @@ const { Option } = Select;
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [selectedRole, setSelectedRole] = useState("mom");
   const navigate = useNavigate();
-  const [selectedRole, setSelectedRole] = useState("Doctor"); // State to store selected role
-
-  const onFinish = async (values) => {
-    setLoading(true);
-
-    try {
-      const { role: selectedRole, ...loginValues } = values; // Destructure role from values and rename to selectedRole
-      const response = await axios.post(
-        "http://localhost:3017/api/login",
-        loginValues, // Send only username and password
-        {
-          params: { role: selectedRole } // Send selectedRole as a query parameter
-        }
-      );
-      const { success, id, message } = response.data; // Remove role from response data
-
-      if (success) {
-        // Navigate based on the user role
-        switch (selectedRole) {
-          case "Doctor":
-            navigate("/Doctor/home");
-            break;
-          case "Administrative_Manager":
-            navigate("/admin/home");
-            break;
-          case "System_Administrator":
-            navigate("/admin/system");
-            break;
-          case "Mother":
-            navigate("/mother/home");
-            break;
-          default:
-            // Default route if role is not recognized
-            navigate("/home");
-        }
-      } else {
-        // Handle login error
-        console.error("Login error:", message);
-      }
-    } catch (error) {
-      console.error("Login error:", error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleRoleChange = (value) => {
-    setSelectedRole(value); // Update selected role
+    setSelectedRole(value);
+  };
+
+  const handleLogin = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.post("http://localhost:3007/login", {
+        username,
+        password,
+      });
+      if (response.data.success) {
+        navigate(response.data.redirectUrl);
+      } else {
+        console.log("Authentication failed");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+    setLoading(false);
   };
 
   return (
     <div>
       <div className="Select-Opt">
         <Select
-          defaultValue="Doctor"
+          defaultValue="mom"
           style={{ width: 120, marginBottom: 20 }}
           onChange={handleRoleChange} // Handle role selection change
         >
-          <Option value="Doctor">Doctor</Option>
-          <Option value="Administrative_Manager">Administrative Manager</Option>
-          <Option value="System_Administrator">System Administrator</Option>
-          <Option value="Mother">Mother</Option>
+          <Option value="mom">Mom</Option>
+          <Option value="doctor">Doctor</Option>
+          <Option value="manager">Manager</Option>
+          <Option value="admin">Administrator</Option>
         </Select>
       </div>
       <Form
         name="login-form"
-        onFinish={onFinish}
         style={{ width: "250px", height: "300px", margin: "auto" }}
+        onFinish={handleLogin} // Handle form submission
       >
         <Form.Item
           name="username"
           rules={[{ required: true, message: "Please enter your username" }]}
         >
-          <Input placeholder="Username" />
+          <Input
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </Form.Item>
 
         <Form.Item
           name="password"
           rules={[{ required: true, message: "Please enter your password" }]}
         >
-          <Input.Password placeholder="Password" />
+          <Input.Password
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </Form.Item>
 
         <Form.Item>
