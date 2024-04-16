@@ -1,3 +1,4 @@
+// Appointment.js
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -29,7 +30,17 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedTables() {
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("ar-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+   
+  }).format(date);
+};
+
+const Appointment = () => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
@@ -39,8 +50,8 @@ export default function CustomizedTables() {
   const fetchAppointments = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3012/api/Doctor/Appointments"
-      ); // Update the endpoint
+        "http://localhost:3078/api/Doctor/Appointments"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch appointments");
       }
@@ -71,7 +82,9 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {row.child_name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.date}</StyledTableCell>
+              <StyledTableCell align="right">
+                {formatDate(row.date)}
+              </StyledTableCell>
               <StyledTableCell align="right">{row.time}</StyledTableCell>
               <StyledTableCell align="right">
                 <Button variant="contained" color="primary">
@@ -84,4 +97,6 @@ export default function CustomizedTables() {
       </Table>
     </TableContainer>
   );
-}
+};
+
+export default Appointment;

@@ -14,6 +14,7 @@ import Child from "./pages/Doctor/child/Child";
 import Appointments from "./component/Appointment/Appointments";
 import AppointmentPage from "./pages/Doctor/AppointmentPage/AppointmentPage";
 import ChildMeasurDoc from "./pages/Doctor/ChildMeasurDoc/ChildMeasurDoc";
+import Home_manager from "./pages/administrative_Manager/Home/Home";
 function App() {
   return (
     <Router>
@@ -35,6 +36,7 @@ function App() {
           <Route path="/Doctor/child" element={<Child />} />
           <Route path="/Doctor/Appointments" element={<AppointmentPage />} />
           <Route path="/Doctor/measurement" element={<ChildMeasurDoc />} />
+          <Route path="/administrative_Manager/Home" element={<Home_manager />} />
         </Routes>
       </div>
     </Router>

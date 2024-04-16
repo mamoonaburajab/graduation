@@ -10,14 +10,15 @@ const Child = () => {
   const [filteredChildren, setFilteredChildren] = useState([]);
 
   useEffect(() => {
-    // Fetch children data when the component mounts
     fetchChildren();
   }, []);
 
   const fetchChildren = async () => {
     try {
       // Make API call to fetch children data
-      const response = await axios.get("http://localhost:3015/api/doctor/child");
+      const response = await axios.get(
+        "http://localhost:3051/api/doctor/child"
+      );
       // Update state with fetched children data
       setChildren(response.data);
       setFilteredChildren(response.data); // Set filtered children initially
@@ -26,9 +27,11 @@ const Child = () => {
     }
   };
 
-  const handleSearch = searchQuery => {
-    const filtered = children.filter(child =>
-      child.first_name.includes(searchQuery) || String(child.ID).includes(searchQuery)
+  const handleSearch = (searchQuery) => {
+    const filtered = children.filter(
+      (child) =>
+        child.first_name.includes(searchQuery) ||
+        String(child.ID).includes(searchQuery)
     );
     setFilteredChildren(filtered);
   };
@@ -42,12 +45,13 @@ const Child = () => {
         </div>
         <div>
           {/* Render child cards based on fetched and filtered data */}
-          {filteredChildren.map(child => (
+          {filteredChildren.map((child) => (
             <CardChildDoc
               key={child.ID}
-              name={child.first_name}
-              id={child.ID}
-              age={child.age}
+              first_name={child.first_name}
+              last_name={child.last_name}
+              ID={child.ID}
+              BOD={child.DOB}
             />
           ))}
         </div>

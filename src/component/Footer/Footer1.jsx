@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css'; // Import CSS file
 
-export default function Footer() {
+export default function Footer1() {
   const footerStyle = {
     background: 'radial-gradient(circle at 53.4% -80.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%)',
   };

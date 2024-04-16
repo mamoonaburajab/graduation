@@ -47,7 +47,7 @@ class VaccinationTable extends React.Component {
               <td></td>
               <td></td>
               <td className="date">تاريخ التطعيم</td>
-              <td rowSpan="3">BCG</td>
+              <td rowSpan="3">Hepatitis B</td>
             </tr>
             <tr>
               <td></td>
@@ -71,7 +71,7 @@ class VaccinationTable extends React.Component {
               <td></td>
               <td></td>
               <td className="date">تاريخ التطعيم</td>
-              <td rowSpan="3">BCG</td>
+              <td rowSpan="3">IPV</td>
             </tr>
             <tr>
               <td></td>
@@ -95,7 +95,7 @@ class VaccinationTable extends React.Component {
               <td></td>
               <td></td>
               <td className="date">تاريخ التطعيم</td>
-              <td rowSpan="3">BCG</td>
+              <td rowSpan="3">OPV</td>
             </tr>
             <tr>
               <td></td>
@@ -119,7 +119,7 @@ class VaccinationTable extends React.Component {
               <td></td>
               <td></td>
               <td className="date">تاريخ التطعيم</td>
-              <td rowSpan="3">BCG</td>
+              <td rowSpan="3">Rota</td>
             </tr>
             <tr>
               <td></td>
@@ -143,7 +143,7 @@ class VaccinationTable extends React.Component {
               <td></td>
               <td></td>
               <td className="date">تاريخ التطعيم</td>
-              <td rowSpan="3">BCG</td>
+              <td rowSpan="3">Penta</td>
             </tr>
             <tr>
               <td></td>
@@ -167,7 +167,7 @@ class VaccinationTable extends React.Component {
               <td></td>
               <td></td>
               <td className="date">تاريخ التطعيم</td>
-              <td rowSpan="3">BCG</td>
+              <td rowSpan="3">PCV</td>
             </tr>
             <tr>
               <td></td>
@@ -191,7 +191,7 @@ class VaccinationTable extends React.Component {
               <td></td>
               <td></td>
               <td className="date">تاريخ التطعيم</td>
-              <td rowSpan="3">BCG</td>
+              <td rowSpan="3">MMR</td>
             </tr>
             <tr>
               <td></td>

@@ -46,7 +46,7 @@ const NavbarD = () => {
             <CNavbarNav className="ms-auto ·">
               <CNavItem>
                 <CNavLink
-                  href=""
+                  href="https://www.youtube.com/"
                   active={activeNavItem === "notes"}
                   onClick={() => handleNavItemClick("notes")}
                   className="text-white "

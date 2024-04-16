@@ -1,0 +1,57 @@
+
+  
+  .content {
+  }
+  .home-btn {
+    color: white;
+    margin-top: 50px;
+  }
+  
+  .info-box {
+    background-color: #215273;
+  
+    opacity: 0.9;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    width: 277px;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-evenly;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .option-btn {
+    background: none;
+    color: white;
+    border: none;
+    padding: 1em 0px;
+    margin-bottom: 1em;
+    cursor: pointer;
+    width: 250px;
+    font-size: larger;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Applies ease-in-out transition to both properties */
+    border-radius: 40px 0 0px 40px;
+   
+  }
+  .option-btn:hover {
+    background-color: white; /* Change background to white on hover */
+    color: #006699; /* Change text color to maintain visibility */
+  }
+  .logout {
+    margin-bottom: 50px;
+  }
+  .line {
+    color: white;
+    background-color: white;
+  }
+  .div-manager {
+    display: flex;
+    justify-content: flex-end;
+    height: 99vh;
+  }
