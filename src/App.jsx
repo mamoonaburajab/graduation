@@ -36,7 +36,7 @@ function App() {
           <Route path="/Doctor/child" element={<Child />} />
           <Route path="/Doctor/Appointments" element={<AppointmentPage />} />
           <Route path="/Doctor/measurement" element={<ChildMeasurDoc />} />
-          <Route path="/administrative_Manager/Home" element={<Home_manager />} />
+          <Route path="/administrative/Manager/Home" element={<Home_manager />} />
         </Routes>
       </div>
     </Router>

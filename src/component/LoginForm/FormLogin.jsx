@@ -2,22 +2,26 @@ import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./FormLogin.css"; // Assuming CSS styles are defined here
+import "./FormLogin.css";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3031/login", {
+      const response = await axios.post("http://localhost:3120/login", {
         username,
         password,
       });
       if (response.data.success) {
+        localStorage.setItem('userId', response.data.userId);  // Store user ID
+        localStorage.setItem('token', response.data.token);    // Store token
+        localStorage.setItem('role', response.data.role);      // Store role
         navigate(`/${response.data.role}/home`);
       } else {
         alert("Authentication failed: " + response.data.message);

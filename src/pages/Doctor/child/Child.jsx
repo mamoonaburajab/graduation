@@ -17,7 +17,7 @@ const Child = () => {
     try {
       // Make API call to fetch children data
       const response = await axios.get(
-        "http://localhost:3051/api/doctor/child"
+        "http://localhost:3120/api/doctor/child"
       );
       // Update state with fetched children data
       setChildren(response.data);
