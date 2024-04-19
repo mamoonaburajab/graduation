@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./NavbarDoc.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 import {
   CNavbarToggler,
   CCollapse,
@@ -10,12 +12,8 @@ import {
   CContainer,
   CNavbarBrand,
   CForm,
-  CDropdown,
-  CDropdownToggle,
-  CDropdownMenu,
-  CDropdownItem,
-  CDropdownDivider,
 } from "@coreui/react";
+import profileImage from "../../assets/image/profile.png"; // Adjust the path to where your image is stored
 
 const NavbarD = () => {
   const [visible, setVisible] = useState(false);
@@ -41,9 +39,22 @@ const NavbarD = () => {
           <CNavbarBrand className="text-white" href="/login">
             تسجيل الخروج
           </CNavbarBrand>
+          <CNavbarBrand href="/">
+            <OverlayTrigger
+              key="right"
+              placement="right"
+              overlay={<Tooltip id="tooltip-right">الملف الشخصي</Tooltip>}
+            >
+              <img
+                src={profileImage}
+                alt="Profile"
+                style={{ height: "30px" }}
+              />
+            </OverlayTrigger>
+          </CNavbarBrand>
           <CNavbarToggler onClick={() => setVisible(!visible)} />
           <CCollapse className="navbar-collapse items" visible={visible}>
-            <CNavbarNav className="ms-auto ·">
+            <CNavbarNav className="ms-auto">
               <CNavItem>
                 <CNavLink
                   href="https://www.youtube.com/"

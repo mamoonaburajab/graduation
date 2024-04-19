@@ -18,10 +18,10 @@ function CardChildDoc({ first_name, last_name, BOD, ID }) {
   const ageInMonths = calculateAgeInMonths(BOD);  // Use BOD to calculate age in months
 
   return (
-    <div className="">
-      <div className="conta-doc">
+    <div className="CardChildDoc">
+      <div className="cont-card">
         <Card
-          style={{ width: "18rem", height: "30rem" }}
+          style={{ width: "18rem", height: "30rem",margin:"80px 25px 0px 0px" }}
           className="card-child"
         >
           <Card.Img

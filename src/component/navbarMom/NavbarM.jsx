@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./NavbarM.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 import {
   CNavbarToggler,
   CCollapse,
@@ -16,6 +18,8 @@ import {
   CDropdownItem,
   CDropdownDivider,
 } from "@coreui/react";
+// Import your image
+import profileImage from "../../assets/image/profile.png"; // Adjust the path to where your image is stored
 
 const NavbarM = () => {
   const [visible, setVisible] = useState(false);
@@ -28,17 +32,31 @@ const NavbarM = () => {
 
   return (
     <div id="color">
-  <CNavbar
-  expand="lg"
-  colorScheme="light"
-  style={{
-    backgroundImage: 'radial-gradient(circle at 53.4% -80.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%)',
-  }}
-  className="fixed-top color"
->
+      <CNavbar
+        expand="lg"
+        colorScheme="light"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 53.4% -80.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%)",
+        }}
+        className="fixed-top color"
+      >
         <CContainer fluid>
           <CNavbarBrand className="text-white" href="/login">
             تسجيل الخروج
+          </CNavbarBrand>
+          <CNavbarBrand href="/">
+            <OverlayTrigger
+              key="right"
+              placement="right"
+              overlay={<Tooltip id="tooltip-right">الملف الشخصي </Tooltip>}
+            >
+              <img
+                src={profileImage}
+                alt="Profile"
+                style={{ height: "30px" }}
+              />
+            </OverlayTrigger>
           </CNavbarBrand>
           <CNavbarToggler onClick={() => setVisible(!visible)} />
           <CCollapse className="navbar-collapse items" visible={visible}>

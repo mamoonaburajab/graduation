@@ -1,5 +1,12 @@
 .CardChildDoc{
-
+  margin-right: 25px;
+}
+.card-img{
+  width: 180px;
+  
+}
+.card-child{
+  margin-left: 40px;
 }
 .btn-child-doc {
     display: flex;
@@ -28,6 +35,7 @@
     margin-top: 30px;
     /* margin-right: 100px; */
   }
+  
   
   @media only screen and (max-width: 767px) {
     .conta-doc {

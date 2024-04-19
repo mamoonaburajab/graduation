@@ -6,19 +6,19 @@ const Navbar_Manager = () => {
     <div className="div-manager">
       <main className="content">
         <div className="info-box div-manager">
-          
-
           <div className="options div-manager">
-          <h3 className="option-btn">الصفحة الرئيسية</h3>
-          <hr className="line"/>
+            <h3 className="option-btn">الصفحة الرئيسية</h3>
+            <hr className="line" />
             <button className="option-btn"> اضافة مستخدم</button>
             <button className="option-btn">إدارة مواعيد العيادة</button>
             <button className="option-btn">تعديل معلومات المستخدم</button>
             <button className="option-btn">إدارة المحتوى الثقافي</button>
-            <hr className="line"/>
+            <hr className="line" />
           </div>
-          
-          <button className="option-btn logout">تسجيل الخروج</button>
+
+          <a href="/login" className="option-btn logout">
+            تسجيل الخروج
+          </a>
         </div>
       </main>
     </div>

@@ -1,43 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
-import Login from "./pages/Login/Login";
-import Home from "./pages/Mother/Home/Home";
-import Note from "./pages/Mother/Note/Note";
-import ChildCard from "./component/childCard/childCard";
-import MotherChildCard from "./component/MotherChildCard/MotherChildCard";
-import BookAppointment from "./component/BookAppointment/BookAppointment";
-import ViewAppointments from "./component/ViewAppointments/ViewAppointments";
-import Vac from "./pages/Mother/Vac/Vac";
-import HomeD from "./pages/Doctor/HomeD/HomeD";
-import Child from "./pages/Doctor/child/Child";
-import Appointments from "./component/Appointment/Appointments";
-import AppointmentPage from "./pages/Doctor/AppointmentPage/AppointmentPage";
-import ChildMeasurDoc from "./pages/Doctor/ChildMeasurDoc/ChildMeasurDoc";
-import Home_manager from "./pages/administrative_Manager/Home/Home";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import routes from './routes/routes';
+import './App.css';
+
 function App() {
   return (
     <Router>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/mother/home" element={<Home />} />
-          <Route
-            path="/mother/MotherChildCard/childCard"
-            element={<ChildCard />}
-          />
-          <Route path="/mother/MotherChildCard" element={<MotherChildCard />} />
-          <Route path="/mother/Appointment" element={<BookAppointment />} />
-          <Route path="/mother/note" element={<Note />} />
-          <Route path="/mother/ViewApp" element={<ViewAppointments />} />
-          <Route path="/mother/MotherChildCard/Vac" element={<Vac />} />
-          <Route path="/Doctor/Home" element={<HomeD />} />
-          <Route path="/Doctor/child" element={<Child />} />
-          <Route path="/Doctor/Appointments" element={<AppointmentPage />} />
-          <Route path="/Doctor/measurement" element={<ChildMeasurDoc />} />
-          <Route path="/administrative/Manager/Home" element={<Home_manager />} />
-        </Routes>
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            {routes.map((route, index) => (
+              <Route key={index} path={route.path} element={route.element} />
+            ))}
+          </Routes>
+        </React.Suspense>
       </div>
     </Router>
   );

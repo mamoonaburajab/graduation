@@ -14,7 +14,7 @@ function MotherChildCard() {
       </div>
       <div className="conta">
         <Card
-          style={{ width: "18rem", height: "30rem" }}
+          style={{ width: "18rem", height: "32em" }}
           className="card-child"
         >
           <Card.Img

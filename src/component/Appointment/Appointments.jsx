@@ -50,7 +50,7 @@ const Appointment = () => {
   const fetchAppointments = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3120/api/Doctor/Appointments"
+        "http://localhost:3121/api/Doctor/Appointments"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch appointments");

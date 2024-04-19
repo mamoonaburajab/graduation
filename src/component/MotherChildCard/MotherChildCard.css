@@ -1,9 +1,18 @@
+.conta{
+  margin: 30px 20px;
+}
 .btn-child {
   display: flex;
   margin: 20px;
   width: 180px;
   justify-content: center;
   background-color: #00224D;
+}.btn-child:hover {
+background-color: black;
+}
+.card-img{
+  height: 200px;
+  width: 200px;
 }
   .link-style {
     text-decoration: none;
