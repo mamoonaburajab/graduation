@@ -18,11 +18,31 @@ const LoginForm = () => {
         username,
         password,
       });
+      console.log("Login response:", response.data); // Debugging output
       if (response.data.success) {
-        localStorage.setItem('userId', response.data.userId);  // Store user ID
-        localStorage.setItem('token', response.data.token);    // Store token
-        localStorage.setItem('role', response.data.role);      // Store role
-        navigate(`/${response.data.role}/home`);
+        // Set items in localStorage
+        localStorage.setItem("userId", response.data.userId);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", response.data.role);
+
+        // Debugging with setTimeout to check storage
+        setTimeout(() => {
+          console.log(
+            "Stored userId (after delay):",
+            localStorage.getItem("userId")
+          );
+          console.log(
+            "Stored token (after delay):",
+            localStorage.getItem("token")
+          );
+          console.log(
+            "Stored role (after delay):",
+            localStorage.getItem("role")
+          );
+
+          // Navigate to the home page of the user's role
+          navigate(`/${response.data.role}/home`);
+        }, 10); // 1-second delay to ensure localStorage is updated
       } else {
         alert("Authentication failed: " + response.data.message);
       }
@@ -62,6 +82,15 @@ const LoginForm = () => {
             style={{ width: "100%" }}
           >
             تسجيل الدخول
+          </Button>
+        </Form.Item>
+        <Form.Item>
+          <Button
+          href="/guast"
+            type="primary"
+            style={{ width: "100%" }}
+          >
+            المتابعة كضيف{" "}
           </Button>
         </Form.Item>
       </Form>

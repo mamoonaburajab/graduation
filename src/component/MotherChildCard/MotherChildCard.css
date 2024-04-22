@@ -1,6 +1,10 @@
 .conta{
   margin: 30px 20px;
 }
+.card-child{
+  margin-left: 20px;
+  background-color: #dfdfdf25;
+}
 .btn-child {
   display: flex;
   margin: 20px;
@@ -11,8 +15,8 @@
 background-color: black;
 }
 .card-img{
-  height: 200px;
-  width: 200px;
+  width: 150px;
+  
 }
   .link-style {
     text-decoration: none;

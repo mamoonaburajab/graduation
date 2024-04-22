@@ -37,6 +37,7 @@
     font-size: larger;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Applies ease-in-out transition to both properties */
     border-radius: 40px 0 0px 40px;
+    text-decoration: none;
    
   }
   .option-btn:hover {

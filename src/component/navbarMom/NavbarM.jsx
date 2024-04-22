@@ -45,7 +45,7 @@ const NavbarM = () => {
           <CNavbarBrand className="text-white" href="/login">
             تسجيل الخروج
           </CNavbarBrand>
-          <CNavbarBrand href="/">
+          <CNavbarBrand href="/mother/profile">
             <OverlayTrigger
               key="right"
               placement="right"

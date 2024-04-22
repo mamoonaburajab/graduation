@@ -13,7 +13,7 @@ function ChildCard() {
       <NavbarM/>
     </div>
     <div>
-    <Card style={{ width: "18rem", height: "36rem" }} className="card-child">
+    <Card style={{ width: "18rem", height: "32rem" }} className="card-child">
       <Card.Img
         variant="top"
         className="card-img"
