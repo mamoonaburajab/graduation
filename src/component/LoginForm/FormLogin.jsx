@@ -84,11 +84,11 @@ const LoginForm = () => {
             تسجيل الدخول
           </Button>
         </Form.Item>
-        <Form.Item>
+        <Form.Item className="gaust-btn">
           <Button
+          className="gaust"
           href="/guast"
-            type="primary"
-            style={{ width: "100%" }}
+          type="primary"
           >
             المتابعة كضيف{" "}
           </Button>

@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import ChildCard from "../component/childCard/childCard";
 import NotFound from "../component/NotFound/NotFound";
+import Profile from "../component/profile/Profile";
 
 const Login = lazy(() => import("../pages/Login/Login"));
 const Home = lazy(() => import("../pages/Mother/Home/Home"));
@@ -29,6 +30,7 @@ const ViewAppointments = lazy(() =>
   import("../component/ViewAppointments/ViewAppointments")
 );
 const Guast = lazy(() => import("../pages/guast/Guast"));
+const ProfileM = lazy(() => import("../pages/Mother/Prfile/profile"));
 const routes = [
   { path: "/", element: <Login /> },
   { path: "/login", element: <Login /> },
@@ -46,6 +48,7 @@ const routes = [
   { path: "/mother/ViewApp", element: <ViewAppointments /> },
   { path: "*", element: <NotFound /> },
   { path: "/guast", element: <Guast /> },
+  { path: "/Mother/profile", element: <ProfileM /> },
 ];
 
 export default routes;

@@ -6,7 +6,6 @@
   background-color: rgba(73, 83, 109, 0.7);
   border-radius: 20px;
   padding: 20px;
-
   width: 25%;
   direction: rtl;
   text-align: right;
@@ -17,6 +16,14 @@
   margin-top: 80px;
 }
 
+.gaust{
+  background-color:#10439F ;
+  width: 100%;
+}
+.gaust-btn{
+  display: flex;
+  justify-content: center;
+}
 
 @media (max-width: 768px) {
   .form {
