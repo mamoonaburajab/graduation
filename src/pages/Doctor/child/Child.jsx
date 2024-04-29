@@ -10,28 +10,22 @@ const Child = () => {
   const [filteredChildren, setFilteredChildren] = useState([]);
 
   useEffect(() => {
+    const fetchChildren = async () => {
+      try {
+        const response = await axios.get("http://localhost:3121/api/doctor/child");
+        setChildren(response.data);
+        setFilteredChildren(response.data);
+      } catch (error) {
+        console.error("Error fetching children:", error);
+      }
+    };
     fetchChildren();
   }, []);
 
-  const fetchChildren = async () => {
-    try {
-      // Make API call to fetch children data
-      const response = await axios.get(
-        "http://localhost:3121/api/doctor/child"
-      );
-      // Update state with fetched children data
-      setChildren(response.data);
-      setFilteredChildren(response.data); // Set filtered children initially
-    } catch (error) {
-      console.error("Error fetching children:", error);
-    }
-  };
-
   const handleSearch = (searchQuery) => {
-    const filtered = children.filter(
-      (child) =>
-        child.first_name.includes(searchQuery) ||
-        String(child.ID).includes(searchQuery)
+    const filtered = children.filter(child =>
+      child.first_name.includes(searchQuery) ||
+      String(child.ID).includes(searchQuery)
     );
     setFilteredChildren(filtered);
   };
@@ -39,12 +33,9 @@ const Child = () => {
   return (
     <div>
       <NavbarD />
-      <div className="childHeader">
-        <div style={{ marginTop: "100px" }}>
-          <SearchBar onSearch={handleSearch} />
-        </div>
+      <div className="childHeader" style={{ marginTop: "100px" }}>
+        <SearchBar onSearch={handleSearch} />
         <div>
-          {/* Render child cards based on fetched and filtered data */}
           {filteredChildren.map((child) => (
             <CardChildDoc
               key={child.ID}

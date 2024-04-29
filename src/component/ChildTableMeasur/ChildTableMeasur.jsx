@@ -1,45 +1,31 @@
+// ChildTableMeasur.jsx
 import React, { useState } from 'react';
-import './ChildTableMeasur.css'; // Import your CSS file for styling
+import { useChild } from '../../assets/useRef/ChildContext'; // Check the path
+import './ChildTableMeasur.css';
 
 const ChildTableMeasur = () => {
+  const { ID } = useChild();
   const [data, setData] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [newRow, setNewRow] = useState({
-    date: '',
-    age: '',
-    weight: '',
-    height: '',
-    headCircumference: '',
-    vitaminAD: '',
-    vitaminK: '',
-    iron: '',
-    nurseName: ''
+    date: '', age: '', weight: '', height: '', headCircumference: '',
+    vitaminAD: '', vitaminK: '', iron: '', nurseName: ''
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewRow((prevRow) => ({
-      ...prevRow,
-      [name]: value
-    }));
+    setNewRow(prevRow => ({ ...prevRow, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const currentDate = new Date().toLocaleDateString(); // Get current date
-    setData((prevData) => [...prevData, { ...newRow, date: currentDate }]);
+    const currentDate = new Date().toLocaleDateString();
+    setData(prevData => [...prevData, { ...newRow, date: currentDate }]);
     setNewRow({
-      date: '',
-      age: '',
-      weight: '',
-      height: '',
-      headCircumference: '',
-      vitaminAD: '',
-      vitaminK: '',
-      iron: '',
-      nurseName: ''
+      date: '', age: '', weight: '', height: '', headCircumference: '',
+      vitaminAD: '', vitaminK: '', iron: '', nurseName: ''
     });
-    setShowForm(false); // Hide the form after submission
+    setShowForm(false);
   };
 
   const toggleForm = () => {
@@ -50,12 +36,13 @@ const ChildTableMeasur = () => {
     <div className="container">
       <h1 className="title1">جدول القياسات</h1>
       <h2 className="form-heading">اسم الطفل</h2>
+      <h3>{ID}</h3>
       
       {showForm && (
         <form className="form1" onSubmit={handleSubmit}>
          
           <label className="label">
-            <span className="label-text">العمر:</span>
+            <span className="label-text">العمر (بالاشهر):</span>
             <input className="input" type="text" name="age" required value={newRow.age} onChange={handleChange} />
           </label>
           <label className="label">
@@ -99,7 +86,7 @@ const ChildTableMeasur = () => {
             <th>محيط الرأس</th>
             <th>الطول</th>
             <th>الوزن</th>
-            <th>العمر</th>
+            <th> العمر (بالاشهر)</th>
             <th>التاريخ</th>
           </tr>
         </thead>
@@ -121,7 +108,7 @@ const ChildTableMeasur = () => {
         
       
     </table>
-    <button className="button" onClick={toggleForm}>إضافة</button>
+      <button className="button" onClick={toggleForm}>إضافة</button>
     </div>
   );
 };
