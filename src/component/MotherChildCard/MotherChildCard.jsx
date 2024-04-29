@@ -1,9 +1,9 @@
+// MotherChildCard.js
 import React, { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./MotherChildCard.css";
 import NavbarM from "../navbarMom/NavbarM";
+import "./MotherChildCard.css";
 
 function MotherChildCard() {
   const [childInfo, setChildInfo] = useState([]);
@@ -60,12 +60,12 @@ function MotherChildCard() {
             </Card.Body>
             <Card.Body className="card-buttons buttons-card">
               <Button variant="success" className="btn-child">
-                <Link to="/mother/MotherChildCard/Vac" className="link-style">
+                <Link to={`/mother/MotherChildCard/Vac/${child.ID}`} className="link-style">
                   تطعيمات الطفل
                 </Link>
               </Button>
               <Button variant="success" className="btn-child">
-                <Link to="/mother/MotherChildCard/childCard" className="link-style">
+                <Link to={`/mother/MotherChildCard/childCard/${child.ID}`} className="link-style">
                   قياسات الطفل
                 </Link>
               </Button>

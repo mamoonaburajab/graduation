@@ -43,7 +43,7 @@ const routes = [
   { path: "/doctor/measurement", element: <ChildMeasurDoc /> },
   { path: "/administrative_manager/home", element: <Home_manager /> },
   { path: "/mother/MotherChildCard", element: <MotherChildCard /> },
-  { path: "/mother/MotherChildCard/childCard", element: <ChildCard /> },
+  { path: "/mother/MotherChildCard/childCard/:childId", element: <ChildCard /> },
   { path: "/mother/Appointment", element: <BookAppointment /> },
   { path: "/mother/ViewApp", element: <ViewAppointments /> },
   { path: "*", element: <NotFound /> },
