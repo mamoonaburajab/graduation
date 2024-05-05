@@ -6,12 +6,13 @@ const Home_manager = () => {
   return (
    <div className='div-manager'>
     <div className='bg-img'>
-    test
+    <Navbar_Manager/>
     </div>
-    <div> <HomeA/></div>
-     <div >
-      <Navbar_Manager/>
+    <div >
+     {/* <div> <HomeA/></div> */}
     </div>
+   
+  
    
    </div>
   )

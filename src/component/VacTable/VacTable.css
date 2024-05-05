@@ -43,4 +43,6 @@
     text-align: center;
     width: 120px;
   }
-  
+  .disable{
+    background-color: black;
+  }

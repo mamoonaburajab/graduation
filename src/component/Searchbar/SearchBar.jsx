@@ -17,22 +17,22 @@ const suffix = (
 const SearchBar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearch = value => {
+  const handleSearch = (value) => {
     setSearchQuery(value);
     onSearch(value);
   };
 
   return (
-    <Space direction="vertical">
-      <Search
-        placeholder="ادخل نص البحث"
-        allowClear
-        enterButton="بحث"
-        size="large"
-        onSearch={handleSearch}
-        style={{ direction: 'rtl' }}
-      />
-    </Space>
+    <Space>
+  <Search
+    placeholder="البحث باستخدام الاسم او رقم الهوية"
+    allowClear
+    enterButton="بحث"
+    size="large"
+    onSearch={handleSearch}
+    style={{ width: "350px", direction: "rtl" }}
+  />
+</Space>
   );
 };
 

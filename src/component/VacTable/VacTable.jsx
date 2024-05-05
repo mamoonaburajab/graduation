@@ -18,7 +18,7 @@ class VaccinationTable extends React.Component {
           </thead>
           <tbody>
             <tr>
-              <td></td>
+              <td className="disable"></td>
               <td></td>
               <td></td>
               <td></td>

@@ -31,24 +31,29 @@ const ViewAppointments = lazy(() =>
 );
 const Guast = lazy(() => import("../pages/guast/Guast"));
 const ProfileM = lazy(() => import("../pages/Mother/Prfile/profile"));
+const AddUserPage = lazy(() => import("../pages/administrative_Manager/AddUserPage/AddUserPage"));
 const routes = [
   { path: "/", element: <Login /> },
   { path: "/login", element: <Login /> },
   { path: "/mother/home", element: <Home /> },
   { path: "/mother/note", element: <Note /> },
-  { path: "/mother/MotherChildCard/Vac", element: <Vac /> },
+  { path: "/mother/MotherChildCard/Vac/:childId", element: <Vac /> },
   { path: "/doctor/home", element: <HomeD /> },
   { path: "/doctor/child", element: <Child /> },
   { path: "/doctor/appointments", element: <AppointmentPage /> },
   { path: "/doctor/measurement", element: <ChildMeasurDoc /> },
   { path: "/administrative_manager/home", element: <Home_manager /> },
   { path: "/mother/MotherChildCard", element: <MotherChildCard /> },
-  { path: "/mother/MotherChildCard/childCard/:childId", element: <ChildCard /> },
+  {
+    path: "/mother/MotherChildCard/childCard/:childId",
+    element: <ChildCard />,
+  },
   { path: "/mother/Appointment", element: <BookAppointment /> },
   { path: "/mother/ViewApp", element: <ViewAppointments /> },
   { path: "*", element: <NotFound /> },
   { path: "/guast", element: <Guast /> },
   { path: "/Mother/profile", element: <ProfileM /> },
+  { path: "/administrative_manager/AddUserPage", element: <AddUserPage /> },
 ];
 
 export default routes;
