@@ -4,7 +4,7 @@ import Appointments from '../../../component/Appointment/Appointments'
 import './AppointmentPage.css'
 const AppointmentPage = () => {
   return (
-    <div>
+    <div className='bg-img'>
         <div><NavbarD/></div>
         <div className='tableDoc'>
             <Appointments/>

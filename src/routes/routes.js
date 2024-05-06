@@ -32,6 +32,7 @@ const ViewAppointments = lazy(() =>
 const Guast = lazy(() => import("../pages/guast/Guast"));
 const ProfileM = lazy(() => import("../pages/Mother/Prfile/profile"));
 const AddUserPage = lazy(() => import("../pages/administrative_Manager/AddUserPage/AddUserPage"));
+const AppointmentManagerPage = lazy(() => import("../pages/administrative_Manager/AppointmentManagerPage/AppointmentManagerPage"));
 const routes = [
   { path: "/", element: <Login /> },
   { path: "/login", element: <Login /> },
@@ -54,6 +55,7 @@ const routes = [
   { path: "/guast", element: <Guast /> },
   { path: "/Mother/profile", element: <ProfileM /> },
   { path: "/administrative_manager/AddUserPage", element: <AddUserPage /> },
+  { path: "/administrative_manager/AppointmentManagerPage", element: <AppointmentManagerPage /> },
 ];
 
 export default routes;

@@ -32,7 +32,7 @@ const AddUser = () => {
       userData.phone_No = formData.get("phone_No"); // Add doctor's phone number
     }
 
-    fetch("http://localhost:4058/administrative_manager/AddUserPage", {
+    fetch("http://localhost:4060/administrative_manager/AddUserPage", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,8 @@ const AddUser = () => {
   };
 
   return (
-    <div className="add-user-container">
+    <div>
+      {" "}
       <div className="user-type-buttons">
         <button
           className="user-type-button"
@@ -60,128 +61,128 @@ const AddUser = () => {
           طفل
         </button>
       </div>
-      <div className="add-user-form">
-        <form onSubmit={handleSubmit}>
-          <h2>إضافة {userType}</h2>
-          <input
-            name="first_name"
-            className="form-input"
-            type="text"
-            placeholder="الاسم الأول"
-            required
-          />
-          <input
-            name="last_name"
-            className="form-input"
-            type="text"
-            placeholder="الاسم الأخير"
-            required
-          />
-          <input
-            name="ID"
-            className="form-input"
-            type="text"
-            placeholder="رقم الهوية"
-            required
-          />
-          {userType === "أم" && (
-            <>
-              <input
-                name="phone_No"
-                className="form-input"
-                type="text"
-                placeholder="رقم الهاتف"
-                required
-              />
-              <input
-                name="City"
-                className="form-input"
-                type="text"
-                placeholder="العنوان"
-                required
-              />
-              <input
-                name="husband_name"
-                className="form-input"
-                type="text"
-                placeholder="اسم الزوج"
-                required
-              />
-              <input
-                name="husband_phone"
-                className="form-input"
-                type="text"
-                placeholder="رقم هاتف الزوج"
-                required
-              />
-            </>
-          )}
-          {userType === "طفل" && (
-            <>
-              <input
-                name="gender"
-                className="form-input"
-                type="text"
-                placeholder="الجنس"
-                required
-              />
-              <input name="DOB" className="form-input" type="date" required />
-              <input
-                name="Child_Serial_No"
-                className="form-input"
-                type="text"
-                placeholder="الرقم التسلسلي للطفل"
-                required
-              />
-              <select name="blood_type" className="form-input" required>
-                <option value="">نوع الدم</option>
-                <option value="A">A</option>
-                <option value="A+">A+</option>
-                <option value="AB">AB</option>
-                <option value="A-">A-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-              </select>
-              <label>
-                حساسية:
-                <select name="allergy" className="form-input" required>
-                  <option value="1">نعم</option>
-                  <option value="0">لا</option>
+      <div className="add-user-container">
+        <div className="add-user-form">
+          <form onSubmit={handleSubmit}>
+            <h2>إضافة {userType}</h2>
+            <input
+              name="first_name"
+              className="form-input"
+              type="text"
+              placeholder="الاسم الأول"
+              required
+            />
+            <input
+              name="last_name"
+              className="form-input"
+              type="text"
+              placeholder="الاسم الأخير"
+              required
+            />
+            <input
+              name="ID"
+              className="form-input"
+              type="text"
+              placeholder="رقم الهوية"
+              required
+            />
+            {userType === "أم" && (
+              <>
+                <input
+                  name="phone_No"
+                  className="form-input"
+                  type="text"
+                  placeholder="رقم الهاتف"
+                  required
+                />
+                <input
+                  name="City"
+                  className="form-input"
+                  type="text"
+                  placeholder="العنوان"
+                  required
+                />
+                <input
+                  name="husband_name"
+                  className="form-input"
+                  type="text"
+                  placeholder="اسم الزوج"
+                  required
+                />
+                <input
+                  name="husband_phone"
+                  className="form-input"
+                  type="text"
+                  placeholder="رقم هاتف الزوج"
+                  required
+                />
+              </>
+            )}
+            {userType === "طفل" && (
+              <>
+                <select name="gender" className="form-input" required>
+                  <option value="">الجنس</option>
+                  <option value="ذكر">ذكر</option>
+                  <option value="أنثى">أنثى</option>
                 </select>
-              </label>
-              <input
-                name="mom_ID"
-                className="form-input"
-                type="text"
-                placeholder="رقم هوية الأم"
-                required
-              />
-            </>
-          )}
-          {userType === "طبيب" && (
-            <>
-              <input
-                name="medical_ID_No"
-                className="form-input"
-                type="text"
-                placeholder="الرقم الطبي التسلسلي"
-                required
-              />
-              <input
-                name="phone_No"
-                className="form-input"
-                type="text"
-                placeholder="رقم الهاتف"
-                required
-              />
-            </>
-          )}
-          <button className="submit-button" type="submit">
-            إضافة
-          </button>
-        </form>
+                <input name="DOB" className="form-input" type="date" required />
+                <input
+                  name="Child_Serial_No"
+                  className="form-input"
+                  type="text"
+                  placeholder="الرقم التسلسلي للطفل"
+                  required
+                />
+                <select name="blood_type" className="form-input" required>
+                  <option value="">نوع الدم</option>
+                  <option value="A">A</option>
+                  <option value="A+">A+</option>
+                  <option value="AB">AB</option>
+                  <option value="A-">A-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                </select>
+                <label>
+                  <select name="allergy" className="form-input " required>
+                    <option value="">الحساسية</option>
+                    <option value="1">نعم</option>
+                    <option value="0">لا</option>
+                  </select>
+                </label>
+                <input
+                  name="mom_ID"
+                  className="form-input"
+                  type="text"
+                  placeholder="رقم هوية الأم"
+                  required
+                />
+              </>
+            )}
+            {userType === "طبيب" && (
+              <>
+                <input
+                  name="medical_ID_No"
+                  className="form-input"
+                  type="text"
+                  placeholder="الرقم الطبي التسلسلي"
+                  required
+                />
+                <input
+                  name="phone_No"
+                  className="form-input"
+                  type="text"
+                  placeholder="رقم الهاتف"
+                  required
+                />
+              </>
+            )}
+            <button className="submit-button" type="submit">
+              إضافة
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

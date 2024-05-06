@@ -13,7 +13,7 @@ const Navbar_Manager = () => {
         <Link to="/administrative_manager/AddUserPage" className="option-btn">
           اضافة مستخدم
         </Link>
-        <Link to="/manageappointments" className="option-btn">
+        <Link to="/administrative_manager/AppointmentManagerPage" className="option-btn">
           إدارة مواعيد العيادة
         </Link>
         <Link to="/edituser" className="option-btn">

@@ -9,8 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import "./Appointment.css";
-
+import "./AppointmentManager.css";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -36,11 +35,10 @@ const formatDate = (dateString) => {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-   
   }).format(date);
 };
 
-const Appointment = () => {
+const AppointmentManager = () => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
@@ -50,7 +48,7 @@ const Appointment = () => {
   const fetchAppointments = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3121/api/Doctor/Appointments"
+        "http://localhost:3121/api/administrative_manager/AppointmentManager"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch appointments");
@@ -63,17 +61,17 @@ const Appointment = () => {
   };
 
   return (
-    <TableContainer component={Paper} className="tableDoc">
+    <TableContainer component={Paper} className="">
       <Table
         sx={{ minWidth: 700, direction: "rtl" }}
         aria-label="customized table"
+        className=""
       >
         <TableHead>
           <TableRow>
             <StyledTableCell align="right">الاسم</StyledTableCell>
             <StyledTableCell align="right">التاريخ</StyledTableCell>
             <StyledTableCell align="right">الوقت</StyledTableCell>
-            <StyledTableCell align="right">سجل الطفل</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -86,11 +84,6 @@ const Appointment = () => {
                 {formatDate(row.date)}
               </StyledTableCell>
               <StyledTableCell align="right">{row.Time}</StyledTableCell>
-              <StyledTableCell align="right">
-                <Button variant="contained" color="primary">
-                  سجل الطفل
-                </Button>
-              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
@@ -99,4 +92,4 @@ const Appointment = () => {
   );
 };
 
-export default Appointment;
+export default AppointmentManager;
