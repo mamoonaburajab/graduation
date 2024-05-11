@@ -1,4 +1,3 @@
-// Appointment.js
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -8,8 +7,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
 import "./AppointmentManager.css";
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -61,15 +60,11 @@ const AppointmentManager = () => {
   };
 
   return (
-    <TableContainer component={Paper} className="">
-      <Table
-        sx={{ minWidth: 700, direction: "rtl" }}
-        aria-label="customized table"
-        className=""
-      >
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 700, direction: "rtl" }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="right">الاسم</StyledTableCell>
+            <StyledTableCell align="right">اسم الأم</StyledTableCell>
             <StyledTableCell align="right">التاريخ</StyledTableCell>
             <StyledTableCell align="right">الوقت</StyledTableCell>
           </TableRow>
@@ -78,7 +73,7 @@ const AppointmentManager = () => {
           {appointments.map((row) => (
             <StyledTableRow key={row.ID}>
               <StyledTableCell component="th" scope="row" align="right">
-                {row.child_name}
+                {row.mother_name} {/* Updated from child_name to mother_name */}
               </StyledTableCell>
               <StyledTableCell align="right">
                 {formatDate(row.date)}

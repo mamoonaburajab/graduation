@@ -19,7 +19,7 @@ const Navbar_Manager = () => {
         <Link to="/edituser" className="option-btn">
           تعديل معلومات المستخدم
         </Link>
-        <Link to="/managecontent" className="option-btn">
+        <Link to="/administrative_manager/AddArticlePage" className="option-btn">
           إدارة المحتوى الثقافي
         </Link>
         <hr className="line" />

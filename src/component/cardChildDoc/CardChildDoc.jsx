@@ -41,7 +41,7 @@ function CardChildDoc({ first_name, last_name, BOD, ID }) {
                         <Link to="/doctor/measurement" className="link-style">القياسات</Link>
                     </Button>
                     <Button variant="success" className="btn-child-doc">
-                        <Link to="/doctor/measurement" className="link-style">التفاصيل</Link>
+                        <Link to="/doctor/child/ChildInfoPage" className="link-style">التفاصيل</Link>
                     </Button>
                 </Card.Body>
             </Card>

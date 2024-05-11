@@ -31,10 +31,25 @@ const ViewAppointments = lazy(() =>
 );
 const Guast = lazy(() => import("../pages/guast/Guast"));
 const ProfileM = lazy(() => import("../pages/Mother/Prfile/profile"));
-const AddUserPage = lazy(() => import("../pages/administrative_Manager/AddUserPage/AddUserPage"));
-const AppointmentManagerPage = lazy(() => import("../pages/administrative_Manager/AppointmentManagerPage/AppointmentManagerPage"));
+const AddUserPage = lazy(() =>
+  import("../pages/administrative_Manager/AddUserPage/AddUserPage")
+);
+const AppointmentManagerPage = lazy(() =>
+  import(
+    "../pages/administrative_Manager/AppointmentManagerPage/AppointmentManagerPage"
+  )
+);
+const AddArticlePage = lazy(() =>
+  import("../pages/administrative_Manager/addArticlePage/AddArticlePage")
+);
+const ChildInfoPage = lazy(() =>
+  import("../pages/Doctor/ChildInfoPage/ChildInfoPage")
+);
+const Admin = lazy(() =>
+  import("../pages/Admin/Admin")
+);
 const routes = [
-  { path: "/", element: <Login /> },
+  { path: "/", element: <Guast /> },
   { path: "/login", element: <Login /> },
   { path: "/mother/home", element: <Home /> },
   { path: "/mother/note", element: <Note /> },
@@ -55,7 +70,22 @@ const routes = [
   { path: "/guast", element: <Guast /> },
   { path: "/Mother/profile", element: <ProfileM /> },
   { path: "/administrative_manager/AddUserPage", element: <AddUserPage /> },
-  { path: "/administrative_manager/AppointmentManagerPage", element: <AppointmentManagerPage /> },
+  {
+    path: "/administrative_manager/AppointmentManagerPage",
+    element: <AppointmentManagerPage />,
+  },
+  {
+    path: "/administrative_manager/AddArticlePage",
+    element: <AddArticlePage />,
+  },
+  {
+    path: "/doctor/child/ChildInfoPage",
+    element: <ChildInfoPage />,
+  },
+  {
+    path: "/System_administrator/home",
+    element: <Admin />,
+  },
 ];
 
 export default routes;
