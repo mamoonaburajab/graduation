@@ -87,7 +87,7 @@ const NavbarD = () => {
               </CNavItem>
               <CNavItem>
                 <CNavLink
-                  href="home"
+                  href="/doctor/home"
                   active={activeNavItem === "home"}
                   onClick={() => handleNavItemClick("home")}
                   className="text-white"

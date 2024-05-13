@@ -2,71 +2,97 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ChildInfo.css";
 import ChildImg from "../../assets/image/ChildDoctor.jpeg";
-import { useChild } from "../../assets/useRef/ChildContext"; // Check the path
+import { useChild } from "../../assets/useRef/ChildContext"; // Ensure this path is correct
 
-const ChildInfo = ({ childId }) => {
+const ChildInfo = () => {
   const [childInfo, setChildInfo] = useState([]);
-  const [display, setDisplay] = useState("Child"); // consistently use lowercase for simplicity
+  const [display, setDisplay] = useState("child");
+
+  // Using useChild hook to get the current child ID
   const { ID } = useChild();
 
-  // Fetch child information
+  // Fetch child information based on ID from context
   useEffect(() => {
     const fetchChildInfo = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:4301/api/child/ChildInfoPage/${ID}`
-        );
-        setChildInfo(response.data.data);
-      } catch (error) {
-        console.error("Error fetching child data:", error);
+      if (ID) {
+        try {
+          const response = await axios.get(
+            `http://localhost:4406/api/doctor/child/ChildInfoPage/${ID}`
+          );
+          setChildInfo(response.data);
+        } catch (error) {
+          console.error("Error fetching child data:", error);
+        }
       }
     };
 
-    if (ID) fetchChildInfo();
-  }, [ID]); // Dependency array with childId to fetch new data when the ID changes
+    fetchChildInfo();
+  }, [ID]); // Depend on ID from the context
+  const formatDate = (dateString) => {
+    if (!dateString) {
+      console.error("Invalid date string:", dateString);
+      return "Invalid date"; // or you can return a default date or handle it as needed
+    }
 
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      console.error("Cannot parse date:", dateString);
+      return "Invalid date";
+    }
+
+    return new Intl.DateTimeFormat("ar-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(date);
+  };
   return (
     <div className="child-info-container">
       <div className="buttons-container">
-        <button onClick={() => setDisplay("Child")}>عرض معلومات الطفل</button>
+        <button onClick={() => setDisplay("child")}>عرض معلومات الطفل</button>
         <button onClick={() => setDisplay("note")}>عرض الملاحظات</button>
       </div>
-      <h3>{ID}</h3>
+
       <div>
-        <img src={ChildImg} alt="" className="Child-bg-img" />
+        <img src={ChildImg} alt="Child background" className="Child-bg-img" />
       </div>
-      {display === "Child" && childInfo ? (
+      {display === "child" && childInfo ? (
         <div className="card-img-child">
           <div className="table-container">
             <table>
               <tbody>
                 <tr>
-                  <td>الاسم</td>{" "}
+                  <td>الاسم</td>
                   <td>
                     {childInfo.first_name} {childInfo.last_name}
                   </td>
                 </tr>
                 <tr>
-                  <td>رقم الهوية</td> <td>{childInfo.ID}</td>
+                  <td>رقم الهوية</td>
+                  <td>{childInfo.ID}</td>
                 </tr>
                 <tr>
-                  <td>الجنس</td> <td>{childInfo.gender}</td>
+                  <td>الجنس</td>
+                  <td>{childInfo.gender}</td>
                 </tr>
                 <tr>
-                  <td>تاريخ الميلاد</td> <td>{childInfo.DOB}</td>
+                  <td>تاريخ الميلاد</td>
+                  <td>{formatDate(childInfo.DOB)}</td>
                 </tr>
                 <tr>
-                  <td>رقم الطفل التسلسلي</td>{" "}
+                  <td>رقم الطفل التسلسلي</td>
                   <td>{childInfo.Child_Serial_No}</td>
                 </tr>
                 <tr>
-                  <td>نوع الدم</td> <td>{childInfo.blood_type}</td>
+                  <td>فصيلة الدم</td>
+                  <td>{childInfo.blood_type}</td>
                 </tr>
                 <tr>
-                  <td>الحساسية</td> <td>{}</td>
+                  <td>الحساسية</td>
+                  <td>{childInfo.allergy || "None"}</td>
                 </tr>
                 <tr>
-                  <td>اسم الأم</td>{" "}
+                  <td>اسم الأم</td>
                   <td>
                     {childInfo.mother_first_name} {childInfo.mother_last_name}
                   </td>

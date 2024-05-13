@@ -134,7 +134,7 @@ const AddUser = () => {
                   required
                 />
                 <select name="blood_type" className="form-input" required>
-                  <option value="">نوع الدم</option>
+                  <option value="">فصيلة الدم</option>
                   <option value="A">A</option>
                   <option value="A+">A+</option>
                   <option value="AB">AB</option>
