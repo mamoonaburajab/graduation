@@ -2,11 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
   direction: rtl; 
 }
 
 .notes-card {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
   max-width: 400px;
   width: 100%;
   padding: 20px;
@@ -17,7 +20,7 @@
   color: #fff;
   direction: ltr; 
   background-color: #0F1035;
-  margin-top: 150px;/* Right-to-left direction */
+  margin-top: 90px;/* Right-to-left direction */
 
   /* background-color: rgba(0, 0, 0, 0.856);Left-to-right direction for the content inside the card */
 }
@@ -54,6 +57,6 @@
 /* Media query for iPhone */
 @media only screen and (max-width: 767px) {
   .notes-container {
-    margin-top: -150px;
+    margin-top: 0px;
   }
 }

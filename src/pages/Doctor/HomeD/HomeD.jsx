@@ -6,6 +6,7 @@ import Footer1 from "../../../component/Footer/Footer1";
 import NavbarM from "../../../component/navbarMom/NavbarM";
 import ArticleData from "../../../assets/data/article/ArticleData.json";
 import NavbarD from "../../../component/NavbarDoc/NavbarDoc";
+import AppointmentDoc from "../../../component/AppointmentDoc/AppointmentDoc";
 
 const HomeD = () => {
   return (
@@ -18,7 +19,7 @@ const HomeD = () => {
           {" "}
           الموقع الرسمي لوزارة الصحة الفلسطينية
           <a href="https://site.moh.ps/">
-            ->
+            {/* -> */}
             <span className="link-website-btn"> اضغط هنا</span>
           </a>
         </div>
@@ -26,7 +27,9 @@ const HomeD = () => {
         <div>
           <Slider />
         </div>
-
+    <div>
+      <AppointmentDoc/>
+    </div>
         <div>
           <Footer1 />
         </div>

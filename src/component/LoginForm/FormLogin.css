@@ -6,21 +6,23 @@
   background-color: rgba(73, 83, 109, 0.7);
   border-radius: 20px;
   padding: 20px;
-
   width: 25%;
   direction: rtl;
   text-align: right;
   margin-right: 20px;
   position: relative;
-  height: 530px;
+  height: 450px;
   justify-content: center;
   margin-top: 80px;
 }
-.Select-Opt{
+
+.gaust{
+  background-color:#10439F ;
   width: 100%;
+}
+.gaust-btn{
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 @media (max-width: 768px) {

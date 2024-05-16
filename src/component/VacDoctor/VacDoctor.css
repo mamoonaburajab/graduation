@@ -1,0 +1,15 @@
+/* VacDoctor.css */
+.container {
+    margin: 80px;
+}
+
+.button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:last-child {
+    margin-right: 0;
+}

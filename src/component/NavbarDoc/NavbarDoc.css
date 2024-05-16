@@ -1,3 +1,6 @@
+.color{
+}
+
 @media (max-width: 767px) {
     .navbar-collapse {
       display: flex;
@@ -13,6 +16,23 @@
   
   
   }
+  .tooltip {
+    position: static;
+    display: inline-block;
+}
+.tooltip:hover::after {
+    content: attr(title);
+    position: absolute;
+    left: 100%;
+    top: 0;
+    white-space: nowrap;
+    z-index: 20;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
   @media only screen 
   and (min-device-width: 768px) 
   and (max-device-width: 1024px) 

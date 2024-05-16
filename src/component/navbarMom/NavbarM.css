@@ -1,4 +1,6 @@
+
 @media (max-width: 767px) {
+  
   .navbar-collapse {
     display: flex;
     flex-direction: column-reverse;

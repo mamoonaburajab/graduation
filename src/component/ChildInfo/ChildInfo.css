@@ -1,0 +1,72 @@
+.Child-bg-img{
+    float: left;
+    width: 51rem;
+    margin-top: -7rem;
+}
+.card-img-child{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+}
+.form-info{
+    margin-top: 60px;
+    margin-right: 60px;
+}
+.table-container {
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    direction: rtl;  /* Ensuring the table respects RTL */
+  }
+  
+  td {
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    text-align: right;  /* Align text to the right for RTL */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  /* Styles for the container of the buttons */
+.buttons-container {
+    text-align: center;  /* Centers the buttons horizontally */
+    margin-top: 80px;    /* Adds space above the container */
+    margin-bottom: 20px; /* Adds space below the container */
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 85px;
+  }
+  
+  /* General styles for all buttons within the container */
+  .buttons-container button {
+    background-color: #092b4b;  /* A green background */
+    color: white;               /* White text color */
+    border: none;               /* No borders */
+    padding: 10px 20px;         /* Padding inside the button */
+    margin: 0 10px;             /* Margin between buttons */
+    text-align: center;         /* Center text within the button */
+    text-decoration: none;      /* No underline */
+    display: inline-block;      /* Allows margin to be applied correctly */
+    font-size: 16px;            /* Font size of the button text */
+    cursor: pointer;            /* Cursor appears as a pointer */
+    border-radius: 5px;         /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  /* Hover effect for buttons */
+  .buttons-container button:hover {
+    background-color: #3e5e8e;  /* Darker shade of green when hovering */
+  }
+  
