@@ -61,16 +61,7 @@ const NavbarM = () => {
           <CNavbarToggler onClick={() => setVisible(!visible)} />
           <CCollapse className="navbar-collapse items" visible={visible}>
             <CNavbarNav className="ms-auto ·">
-              <CNavItem>
-                <CNavLink
-                  href="/mother/Note"
-                  active={activeNavItem === "notes"}
-                  onClick={() => handleNavItemClick("notes")}
-                  className="text-white "
-                >
-                  اضافة ملاحظات
-                </CNavLink>
-              </CNavItem>
+  
               <CDropdown variant="nav-item" popper={false}>
                 <CDropdownToggle color="secondary right" className="text-white">
                   ادارة الموعيد

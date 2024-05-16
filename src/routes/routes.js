@@ -48,11 +48,14 @@ const ChildInfoPage = lazy(() =>
 const Admin = lazy(() =>
   import("../pages/Admin/Admin")
 );
+const VacDoctorPage = lazy(() =>
+  import("../pages/Doctor/VacDoctorPage/VacDoctorPage")
+);
 const routes = [
   { path: "/", element: <Guast /> },
   { path: "/login", element: <Login /> },
   { path: "/mother/home", element: <Home /> },
-  { path: "/mother/note", element: <Note /> },
+  { path:"/mother/MotherChildCard/Note/:childId", element: {Note}  },
   { path: "/mother/MotherChildCard/Vac/:childId", element: <Vac /> },
   { path: "/doctor/home", element: <HomeD /> },
   { path: "/doctor/child", element: <Child /> },
@@ -85,6 +88,10 @@ const routes = [
   {
     path: "/System_administrator/home",
     element: <Admin />,
+  },
+  {
+    path: "/Doctor/child/Vac",
+    element: <VacDoctorPage />,
   },
 ];
 
