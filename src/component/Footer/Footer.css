@@ -9,13 +9,11 @@
   color: #ccc;
   padding: 20px 50px; /* Adjust padding as needed */
   font-family: Arial, sans-serif;
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
   text-align: center; /* Center everything in the footer */
-  z-index: 1000;
   height: 75px;
 }
 
@@ -41,7 +39,9 @@
 .social-icon:hover {
   color: #00df9a;
 }
-
+.footer-text{
+  width: 270px;
+}
 @media (max-width: 767px) {
   .footer {
     grid-template-columns: 1fr 2fr;

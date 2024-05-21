@@ -30,7 +30,7 @@ const SimpleFooter = () => {
           </div>
           <div>
             {" "}
-            <h1>عيادة ابو عياش</h1>
+            <h1 className="footer-text"> نسعى لتقديم العناية الفائقة لاطفالكم </h1>
           </div>
         </div>
       </div>
