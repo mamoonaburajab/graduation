@@ -1,10 +1,7 @@
 import React from "react";
 import "./HomeD.css";
-import CardArticle from "../../../component/article/Article";
 import Slider from "../../../component/slider/Slider";
 import Footer1 from "../../../component/Footer/Footer1";
-import NavbarM from "../../../component/navbarMom/NavbarM";
-import ArticleData from "../../../assets/data/article/ArticleData.json";
 import NavbarD from "../../../component/NavbarDoc/NavbarDoc";
 import AppointmentDoc from "../../../component/AppointmentDoc/AppointmentDoc";
 

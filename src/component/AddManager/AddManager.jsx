@@ -10,7 +10,7 @@ const AddManager = () => {
   }, []);
 
   const fetchManagers = () => {
-    fetch("http://localhost:4071/administrative_manager/home")
+    fetch("http://localhost:3121/administrative_manager/home")
       .then((response) => response.json())
       .then((data) => setManagers(data))
       .catch((error) => {
@@ -29,7 +29,7 @@ const AddManager = () => {
       phone_No: formData.get("phone_No"),
     };
 
-    fetch("http://localhost:4071/administrative_manager/home", {
+    fetch("http://localhost:3121/administrative_manager/home", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,11 +58,37 @@ const AddManager = () => {
       </div>
       {view === "form" && (
         <form onSubmit={handleSubmit}>
-          <input name="first_name" className="form-input" type="text" placeholder="الاسم الأول" required />
-          <input name="last_name" className="form-input" type="text" placeholder="الاسم الأخير" required />
-          <input name="ID" className="form-input" type="text" placeholder="رقم الهوية" required />
-          <input name="phone_No" className="form-input" type="text" placeholder="رقم الهاتف" required />
-          <button className="submit-button" type="submit">إضافة</button>
+          <input
+            name="first_name"
+            className="form-input"
+            type="text"
+            placeholder="الاسم الأول"
+            required
+          />
+          <input
+            name="last_name"
+            className="form-input"
+            type="text"
+            placeholder="الاسم الأخير"
+            required
+          />
+          <input
+            name="ID"
+            className="form-input"
+            type="text"
+            placeholder="رقم الهوية"
+            required
+          />
+          <input
+            name="phone_No"
+            className="form-input"
+            type="text"
+            placeholder="رقم الهاتف"
+            required
+          />
+          <button className="submit-button" type="submit">
+            إضافة
+          </button>
         </form>
       )}
       {view === "list" && (
@@ -70,7 +96,9 @@ const AddManager = () => {
           <h3>قائمة المدراء</h3>
           {managers.map((manager, index) => (
             <div key={index}>
-              <p>{manager.first_name} {manager.last_name} - {manager.phone_No}</p>
+              <p>
+                {manager.first_name} {manager.last_name} - {manager.phone_No}
+              </p>
             </div>
           ))}
         </div>

@@ -5,7 +5,7 @@ import Profile from "../component/profile/Profile";
 
 const Login = lazy(() => import("../pages/Login/Login"));
 const Home = lazy(() => import("../pages/Mother/Home/Home"));
-const Note = lazy(() => import("../pages/Mother/Note/Note"));
+const Notes = lazy(() => import("../pages/Mother/Note/Note"));
 const Vac = lazy(() => import("../pages/Mother/Vac/Vac"));
 const HomeD = lazy(() => import("../pages/Doctor/HomeD/HomeD"));
 const Child = lazy(() => import("../pages/Doctor/child/Child"));
@@ -55,7 +55,7 @@ const routes = [
   { path: "/", element: <Guast /> },
   { path: "/login", element: <Login /> },
   { path: "/mother/home", element: <Home /> },
-  { path:"/mother/MotherChildCard/Note/:childId", element: {Note}  },
+  { path:"/mother/MotherChildCard/Note/:childId", element: <Notes/>  },
   { path: "/mother/MotherChildCard/Vac/:childId", element: <Vac /> },
   { path: "/doctor/home", element: <HomeD /> },
   { path: "/doctor/child", element: <Child /> },

@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
-import CardArticle from "../../../component/article/Article";
 import Slider from "../../../component/slider/Slider";
 import Footer1 from "../../../component/Footer/Footer1";
 import NavbarM from "../../../component/navbarMom/NavbarM";
-import ArticleData from "../../../assets/data/article/ArticleData.json";
+import CardArticle from "../../../component/ArticleD/CardArticle";
 
 const Home = () => {
+  const [articles, setArticles] = useState([]); // State to hold articles
+
+  useEffect(() => {
+    fetch("http://localhost:4804/api/Mother/home") // Adjusted to correct port and endpoint
+      .then((response) => response.json())
+      .then((data) => {
+        setArticles(data);
+      })
+      .catch((error) => console.error("Error fetching articles:", error));
+  }, []);
+
   return (
     <div className="home">
       <div>
@@ -14,24 +24,22 @@ const Home = () => {
           <NavbarM />
         </div>
         <div className="link-website">
-          {" "}
           الموقع الرسمي لوزارة الصحة الفلسطينية
           <a href="https://site.moh.ps/">
-            ->
-            <span className="link-website-btn"> اضغط هنا</span>
+            -> <span className="link-website-btn"> اضغط هنا</span>
           </a>
         </div>
-       
         <div>
           <Slider />
         </div>
         <div className="articleCard">
-          {ArticleData.entries.map((entry) => (
+          {articles.map((article) => (
             <CardArticle
-              key={entry.id}
-              title={entry.title}
-              paragraph={entry.paragraph}
-              image={entry.image}
+              key={article.id}
+              title={article.Title}
+              paragraph={article.text}
+              image={article.image}
+              Link={article.Link}
             />
           ))}
         </div>

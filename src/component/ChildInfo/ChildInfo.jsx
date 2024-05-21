@@ -6,6 +6,7 @@ import { useChild } from "../../assets/useRef/ChildContext"; // Ensure this path
 
 const ChildInfo = () => {
   const [childInfo, setChildInfo] = useState([]);
+  const [notes, setNotes] = useState([]);
   const [display, setDisplay] = useState("child");
 
   // Using useChild hook to get the current child ID
@@ -26,8 +27,23 @@ const ChildInfo = () => {
       }
     };
 
+    const fetchNotes = async () => {
+      if (ID) {
+        try {
+          const response = await axios.get(
+            `http://localhost:4406/api/doctor/child/notes/${ID}`
+          );
+          setNotes(response.data);
+        } catch (error) {
+          console.error("Error fetching notes:", error);
+        }
+      }
+    };
+
     fetchChildInfo();
+    fetchNotes();
   }, [ID]); // Depend on ID from the context
+
   const formatDate = (dateString) => {
     if (!dateString) {
       console.error("Invalid date string:", dateString);
@@ -46,6 +62,7 @@ const ChildInfo = () => {
       day: "2-digit",
     }).format(date);
   };
+
   return (
     <div className="child-info-container">
       <div className="buttons-container">
@@ -103,7 +120,26 @@ const ChildInfo = () => {
         </div>
       ) : display === "note" ? (
         <div className="note-container">
-          <p>Notes information will be displayed here.</p>
+          {notes.length > 0 ? (
+            <table className="notes-table">
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>الملاحظة</th>
+                </tr>
+              </thead>
+              <tbody>
+                {notes.map((note) => (
+                  <tr key={note.ID}>
+                    <td>{formatDate(note.NoteDate)}</td>
+                    <td>{note.Note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>No notes available.</p>
+          )}
         </div>
       ) : null}
     </div>

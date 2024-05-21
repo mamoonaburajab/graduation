@@ -32,7 +32,7 @@ const AddUser = () => {
       userData.phone_No = formData.get("phone_No"); // Add doctor's phone number
     }
 
-    fetch("http://localhost:4061/administrative_manager/AddUserPage", {
+    fetch("http://localhost:3121/administrative_manager/AddUserPage", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

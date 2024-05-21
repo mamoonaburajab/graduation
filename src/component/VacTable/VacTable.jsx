@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./VacTable.css";
 
-class VaccinationTable extends React.Component {
-  render() {
-    return (
+const VacTable = () => {
+
+
+  return (
+    <div>
+      {" "}
       <div>
         <table className="rtl-table">
           <thead>
@@ -19,7 +22,7 @@ class VaccinationTable extends React.Component {
           <tbody>
             <tr>
               <td className="disable"></td>
-              <td></td>
+              <td>{}</td>
               <td></td>
               <td></td>
               <td className="date">تاريخ التطعيم</td>
@@ -234,8 +237,8 @@ class VaccinationTable extends React.Component {
           </tbody>
         </table>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default VaccinationTable;
+export default VacTable;

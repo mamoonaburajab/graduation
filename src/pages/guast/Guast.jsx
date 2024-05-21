@@ -1,23 +1,32 @@
-import React from "react";
-import CardArticle from "../../component/article/Article";
-import ArticleData from "../../assets/data/article/ArticleData.json";
-import "./Guast.css"; // Make sure to create this CSS file
+import React, { useEffect, useState } from "react";
+import CardArticle from "../../component/ArticleD/CardArticle";
+import "./Guast.css";
 
-const Guast = () => {
+const Guest = () => {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4803/api/articles") // Full URL
+      .then((response) => response.json())
+      .then((data) => setArticles(data))
+      .catch((error) => console.error("Error fetching articles:", error));
+  }, []);
+
   return (
     <div>
       <nav className="navbar">
-        <button className="nav-button"><a href="/login">
-            تسجيل الدخول
-            </a></button>
+        <button className="nav-button">
+          <a href="/login">تسجيل الدخول</a>
+        </button>
       </nav>
-      <div className="articleCard">
-        {ArticleData.entries.map((entry) => (
+      <div className="article-card">
+        {" "}
+        {articles.map((article) => (
           <CardArticle
-            key={entry.id}
-            title={entry.title}
-            paragraph={entry.paragraph}
-            image={entry.image}
+            key={article.ID}
+            title={article.Title}
+            paragraph={article.text} 
+            image={article.image} 
           />
         ))}
       </div>
@@ -25,4 +34,4 @@ const Guast = () => {
   );
 };
 
-export default Guast;
+export default Guest; 
