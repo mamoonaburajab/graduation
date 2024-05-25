@@ -51,6 +51,10 @@ const Admin = lazy(() =>
 const VacDoctorPage = lazy(() =>
   import("../pages/Doctor/VacDoctorPage/VacDoctorPage")
 );
+const ComparisonChildPage = lazy(() =>
+  import("../pages/Mother/ComparisonChildPage/ComparisonChildPage")
+);
+
 const routes = [
   { path: "/", element: <Guast /> },
   { path: "/login", element: <Login /> },
@@ -90,8 +94,12 @@ const routes = [
     element: <Admin />,
   },
   {
-    path: "/Doctor/child/Vac",
+    path: "/Doctor/child/Vac/:childId",
     element: <VacDoctorPage />,
+  },
+  {
+    path: "/mother/MotherChildCard/childCard/ComparisonChild",
+    element: <ComparisonChildPage />,
   },
 ];
 

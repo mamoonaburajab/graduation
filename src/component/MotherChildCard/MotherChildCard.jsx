@@ -86,18 +86,22 @@ function MotherChildCard() {
                   قياسات الطفل
                 </Link>
               </Button>
+
               <Button variant="success" className="btn-child">
-                مقارنة قياسات الطفل
+                {" "}
+                <Link to={`/mother/MotherChildCard/childCard/ComparisonChild`}
+                className="link-style">
+                  مقارنة قياسات الطفل
+                </Link>{" "}
               </Button>
               <Button variant="success" className="btn-child">
-              <Link
+                <Link
                   to={`/mother/MotherChildCard/Note/${child.ID}`}
                   className="link-style"
                 >
                   اضافة ملاحظة
                 </Link>
               </Button>
-
             </Card.Body>
           </Card>
         ))}

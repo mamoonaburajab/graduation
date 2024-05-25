@@ -1,95 +1,45 @@
 import React, { useState } from "react";
-import './Add_Vac.css'; // Ensure CSS is properly linked
+import AfterBirthForm from "../AfterBirth/AfterBirth";
+import FirstMonthForm from "../FirstMonth/FirstMonth";
+import SecondMonthForm from "../SecondMonth/SecondMonth";
+import FourthMonthForm from "../FourthMonth/FourthMonth";
+import SixthMonthForm from "../SixthMonth/SixthMonth";
+import TwelfthMonthForm from "../TwelfthMonth/TwelfthMonth";
+import EighteenthMonthForm from "../EighteenthMonth/EighteenthMonth";
+import "./Add_Vac.css"; // Import the CSS file
 
-const Add_Vac = ({ index }) => {
-  const [formData, setFormData] = useState({
-    BCG: false,
-    BCG_ID: "",
-    Hepatitis_B: false,
-    Hepatitis_B_ID: "",
-    Doctor_Name: "",
-  });
-
-  const doctors = ["الدكتور سميث", "الدكتور جونز", "الدكتور براون"]; // Example doctor names in Arabic
+const Add_Vac = () => {
+  const [selectedForm, setSelectedForm] = useState("");
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value
-    }));
+    setSelectedForm(e.target.value);
   };
 
   return (
-    <div className="form-container">
-      <label className="form-item">
-        <input
-          type="checkbox"
-          name="BCG"
-          checked={formData.BCG}
-          onChange={handleChange}
-        />
-        BCG
-      </label>
-      <input
-        type="text"
-        name="BCG_ID"
-        value={formData.BCG_ID}
-        className="input-text form-item"
-        placeholder="معرّف بي سي جي"
-        onChange={handleChange}
-      />
-      <label className="form-item">
-        <input
-          type="checkbox"
-          name="Hepatitis_B"
-          checked={formData.Hepatitis_B}
-          onChange={handleChange}
-        />
-        Hepatitis B
-      </label>
-      <input
-        type="text"
-        name="Hepatitis_B_ID"
-        value={formData.Hepatitis_B_ID}
-        className="input-text form-item"
-        placeholder="معرّف التهاب الكبد ب"
-        onChange={handleChange}
-      />
-      <select
-        name="Doctor_Name"
-        value={formData.Doctor_Name}
-        className="select-doctor form-item"
-        onChange={handleChange}
-      >
-        <option value="">اختر طبيب</option>
-        {doctors.map(doctor => (
-          <option key={doctor} value={doctor}>{doctor}</option>
-        ))}
+    <div className="container">
+      <h1 className="title">نموذج التطعيم</h1>
+      <select className="select" onChange={handleChange} value={selectedForm}>
+        <option value="">اختر التطعيم</option>
+        <option value="afterBirth">بعد الولادة</option>
+        <option value="firstMonth">الشهر الأول</option>
+        <option value="secondMonth">الشهر الثاني</option>
+        <option value="fourthMonth">الشهر الرابع</option>
+        <option value="sixthMonth">الشهر السادس</option>
+        <option value="twelfthMonth">الشهر الثاني عشر</option>
+        <option value="eighteenthMonth">الشهر الثامن عشر</option>
       </select>
-      <button className="submit-btn form-item">Submit</button>
+
+      <div className="form-container">
+        {selectedForm === "afterBirth" && <AfterBirthForm />}
+        {selectedForm === "firstMonth" && <FirstMonthForm />}
+        {selectedForm === "secondMonth" && <SecondMonthForm />}
+        {selectedForm === "fourthMonth" && <FourthMonthForm />}
+        {selectedForm === "sixthMonth" && <SixthMonthForm />}
+        {selectedForm === "twelfthMonth" && <TwelfthMonthForm />}
+        {selectedForm === "eighteenthMonth" && <EighteenthMonthForm />}
+      </div>
     </div>
   );
 };
 
-const FormsList = () => {
-  const [selectedForm, setSelectedForm] = useState(null);
-
-  const handleSelect = (e) => {
-    setSelectedForm(Number(e.target.value));
-  };
-
-  return (
-    <div className="forms-list">
-      <select className="selection-dropdown" onChange={handleSelect}>
-        <option value="">Select a form</option>
-        {[...Array(7)].map((_, index) => (
-          <option key={index} value={index}>Form {index + 1}</option>
-        ))}
-      </select>
-      {selectedForm !== null && <Add_Vac key={selectedForm} index={selectedForm} />}
-    </div>
-  );
-};
-
-export default FormsList;
+export default Add_Vac;

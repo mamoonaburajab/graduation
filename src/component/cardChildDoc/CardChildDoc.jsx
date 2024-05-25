@@ -1,4 +1,3 @@
-// CardChildDoc.js
 import React from "react";
 import { useChild } from "../../assets/useRef/ChildContext"; // Ensure the path is correct
 import Card from "react-bootstrap/Card";
@@ -44,7 +43,7 @@ function CardChildDoc({ first_name, last_name, BOD, ID }) {
         </Card.Body>
         <Card.Body className="card-buttons buttons-card">
           <Button variant="success" className="btn-child-doc">
-            <Link to="/Doctor/child/Vac " className="link-style">
+            <Link to={`/Doctor/child/Vac/${ID}`} className="link-style">
               التطعيمات
             </Link>
           </Button>

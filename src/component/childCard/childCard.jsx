@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useChild } from "../../assets/useRef/ChildContext";
 import NavbarM from "../navbarMom/NavbarM";
 import "./ChildCard.css";
+import ComparisonChild from "../ComparisonChild/ComparisonChild";
 
 function ChildCard() {
   const { childId } = useParams();
@@ -49,6 +50,7 @@ function ChildCard() {
           <ListGroup.Item>الحديد: {measurements.lron}</ListGroup.Item>
         </ListGroup>
       </Card>
+      <ComparisonChild/>
     </div>
   );
 }

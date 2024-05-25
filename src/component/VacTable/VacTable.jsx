@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./VacTable.css";
 
 // Utility function to format the date
 const formatDate = (dateString) => {
   if (!dateString) return "";
-  const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-  return new Date(dateString).toLocaleDateString('en-US', options);
+  const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+  return new Date(dateString).toLocaleDateString("en-US", options);
 };
 
 const VacTable = () => {
+  const { childId } = useParams(); // Get childId from URL parameters
   const [afterBirthData, setAfterBirthData] = useState(null);
   const [firstMonthData, setFirstMonthData] = useState(null);
   const [secondMonthData, setSecondMonthData] = useState(null);
@@ -18,9 +20,9 @@ const VacTable = () => {
   const [eighteenthMonthData, setEighteenthMonthData] = useState(null);
 
   useEffect(() => {
-    const childId = "47586"; // Should ideally be dynamic or passed as a prop
-    const baseUrl = `http://localhost:4012/api/mother/MotherChildCard/Vac/${childId}`;
+    if (!childId) return;
 
+    const baseUrl = `http://localhost:4015/api/mother/MotherChildCard/Vac/${childId}`;
     fetch(baseUrl)
       .then((response) => response.json())
       .then((data) => {
@@ -36,7 +38,7 @@ const VacTable = () => {
       .catch((error) => {
         console.error("Error fetching vaccination data:", error);
       });
-  }, []);
+  }, [childId]);
 
   return (
     <div>
@@ -134,7 +136,7 @@ const VacTable = () => {
               <td rowSpan="3">OPV</td>
             </tr>
             <tr>
-              <td>{eighteenthMonthData?.OPV_ID || 'N/A'}</td>
+              <td>{eighteenthMonthData?.OPV_ID}</td>
               <td>{sixthMonthData?.OPV_ID}</td>
               <td>{fourthMonthData?.OPV_ID}</td>
               <td>{secondMonthData?.OPV_ID}</td>

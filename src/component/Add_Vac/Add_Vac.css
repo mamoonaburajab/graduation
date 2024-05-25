@@ -1,92 +1,29 @@
-/* General styling for the form container */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 70px;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: right;
+}
+
 .form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f9fa5b;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    padding-bottom: 50px;
-    margin-top: 100px;
-    direction: rtl;  /* Ensures text and layout flow from right to left */
-  }
-  
-  /* Style for input fields and select dropdown */
-  .form-item, .select-doctor, .input-text {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-    text-align: right;  /* Aligns text to the right */
-  }
-  
-  .form-item:focus, .select-doctor:focus, .input-text:focus {
-    border-color: #007bff;
-  }
-  
-  /* Submit button styling */
-  .submit-btn {
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(9, 29, 85, 1) 0%, rgba(0, 0, 0, 1) 100%);
-    opacity: 0.9;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-btn:hover {
-    background-color: #222121;
-  }
-  
-  /* Styling for the forms list container */
-  .forms-list {
-    padding: 20px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    direction: rtl;  /* Additional RTL support for list container */
-  }
-  
-  /* Dropdown styling */
-  .selection-dropdown {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: white;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .selection-dropdown:focus {
-    border-color: #007bff;
-  }
-  
-  /* Additional button container for potential navigation or actions */
-  .buttons-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    direction: ltr;  /* Keeps buttons in a logical order even in RTL layout */
-  }
-  
-  .buttons-container button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .buttons-container button:hover {
-    background-color: #003d80;
-  }
-  
+  margin-top: 20px;
+}
