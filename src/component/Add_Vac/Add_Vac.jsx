@@ -11,6 +11,31 @@ import "./Add_Vac.css"; // Import the CSS file
 const Add_Vac = () => {
   const [selectedForm, setSelectedForm] = useState("");
 
+  const handleSubmit = (formType, formData) => {
+    // Extract child_id from the URL
+    const url = window.location.href;
+    const childId = url.substring(url.lastIndexOf("/") + 1);
+
+    const endpoint = `http://localhost:5012/Doctor/child/Vac/${childId}`;
+
+    fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ formType, ...formData }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(`${formType} Success:`, data);
+        alert(`${formType} data submitted successfully`);
+      })
+      .catch((error) => {
+        console.error(`${formType} Error:`, error);
+        alert(`An error occurred while submitting the ${formType} data`);
+      });
+  };
+
   const handleChange = (e) => {
     setSelectedForm(e.target.value);
   };
@@ -30,13 +55,27 @@ const Add_Vac = () => {
       </select>
 
       <div className="form-container">
-        {selectedForm === "afterBirth" && <AfterBirthForm />}
-        {selectedForm === "firstMonth" && <FirstMonthForm />}
-        {selectedForm === "secondMonth" && <SecondMonthForm />}
-        {selectedForm === "fourthMonth" && <FourthMonthForm />}
-        {selectedForm === "sixthMonth" && <SixthMonthForm />}
-        {selectedForm === "twelfthMonth" && <TwelfthMonthForm />}
-        {selectedForm === "eighteenthMonth" && <EighteenthMonthForm />}
+        {selectedForm === "afterBirth" && (
+          <AfterBirthForm handleSubmit={handleSubmit} />
+        )}
+        {selectedForm === "firstMonth" && (
+          <FirstMonthForm handleSubmit={handleSubmit} />
+        )}
+        {selectedForm === "secondMonth" && (
+          <SecondMonthForm handleSubmit={handleSubmit} />
+        )}
+        {selectedForm === "fourthMonth" && (
+          <FourthMonthForm handleSubmit={handleSubmit} />
+        )}
+        {selectedForm === "sixthMonth" && (
+          <SixthMonthForm handleSubmit={handleSubmit} />
+        )}
+        {selectedForm === "twelfthMonth" && (
+          <TwelfthMonthForm handleSubmit={handleSubmit} />
+        )}
+        {selectedForm === "eighteenthMonth" && (
+          <EighteenthMonthForm handleSubmit={handleSubmit} />
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './EighteenthMonth.css'; // Import the CSS file for styling
 
-const EighteenthMonthForm = () => {
+const EighteenthMonthForm = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
     OPV: false,
     OPV_ID: '',
@@ -22,20 +22,18 @@ const EighteenthMonthForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend
-    console.log(formData);
+    handleSubmit("eighteenthMonth", formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={onSubmit} className="form-container">
       <div className="form-group">
         <label>
           OPV:
           <input
-          className='checkbox'
-
+            className="checkbox"
             type="checkbox"
             name="OPV"
             checked={formData.OPV}

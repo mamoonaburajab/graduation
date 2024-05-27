@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FirstMonth.css'; // Import the CSS file for styling
 
-const FirstMonthForm = () => {
+const FirstMonthForm = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
     IPV: false,
     IPV_ID: '',
@@ -18,14 +18,13 @@ const FirstMonthForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend
-    console.log(formData);
+    handleSubmit('firstMonth', formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={onSubmit} className="form-container">
       <div className="form-group">
         <label>
           IPV:
@@ -40,18 +39,18 @@ const FirstMonthForm = () => {
       </div>
       <div className="form-group">
         <label>
-           .IPV Lot No
+          IPV Lot No:
           <input
             type="text"
             name="IPV_ID"
             value={formData.IPV_ID}
             onChange={handleChange}
+            placeholder='IPV Lot Number'
           />
         </label>
       </div>
       <div className="form-group">
         <label>
-          اسم الطبيب:
           <select
             name="Doctor_Name"
             value={formData.Doctor_Name}

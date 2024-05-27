@@ -1,40 +1,37 @@
-import React, { useState } from 'react';
-import './TwelfthMonth.css'; // Import the CSS file for styling
+import React, { useState } from "react";
+import "./TwelfthMonth.css"; // Import the CSS file for styling
 
-const TwelfthMonthForm = () => {
+const TwelfthMonthForm = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
     PCV: false,
-    PCV_ID: '',
+    PCV_ID: "",
     MMR: false,
-    MMR_ID: '',
-    Doctor_Name: ''
+    MMR_ID: "",
+    Doctor_Name: "",
   });
 
-  const doctors = ['د. سميث', 'د. جونسون', 'د. لي']; // Example list of doctors
-  const mmrIds = ['MMR1', 'MMR2', 'MMR3']; // Example list of MMR IDs
+  const doctors = ["د. سميث", "د. جونسون", "د. لي"]; // Example list of doctors
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend
-    console.log(formData);
+    handleSubmit("twelfthMonth", formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={onSubmit} className="form-container">
       <div className="form-group">
         <label>
           PCV:
           <input
-          className='checkbox'
-
+            className="checkbox"
             type="checkbox"
             name="PCV"
             checked={formData.PCV}
@@ -67,18 +64,12 @@ const TwelfthMonthForm = () => {
       <div className="form-group">
         <label>
           معرف MMR:
-          <select
+          <input
+            type="text"
             name="MMR_ID"
             value={formData.MMR_ID}
             onChange={handleChange}
-          >
-            <option value="">اختر معرف MMR</option>
-            {mmrIds.map((id) => (
-              <option key={id} value={id}>
-                {id}
-              </option>
-            ))}
-          </select>
+          />
         </label>
       </div>
       <div className="form-group">
@@ -98,7 +89,9 @@ const TwelfthMonthForm = () => {
           </select>
         </label>
       </div>
-      <button type="submit" className="submit-button">إرسال</button>
+      <button type="submit" className="submit-button">
+        إرسال
+      </button>
     </form>
   );
 };

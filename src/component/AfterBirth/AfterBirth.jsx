@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AfteBirht.css'; // Import the CSS file for styling
 
-const AfterBirthForm = () => {
+const AfterBirthForm = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
     BCG: false,
     BCG_ID: '',
@@ -18,19 +18,18 @@ const AfterBirthForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend
-    console.log(formData);
+    handleSubmit('afterBirth', formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <div className="form-group ">
+    <form onSubmit={onSubmit} className="form-container">
+      <div className="form-group">
         <label>
-          BCG :
+          BCG:
           <input 
-          className='checkbox'
+            className='checkbox'
             type="checkbox"
             name="BCG"
             checked={formData.BCG}
@@ -40,7 +39,7 @@ const AfterBirthForm = () => {
       </div>
       <div className="form-group">
         <label>
-         .BCG Lot No
+          BCG Lot No:
           <input
             type="text"
             name="BCG_ID"
@@ -52,7 +51,6 @@ const AfterBirthForm = () => {
       </div>
       <div className="form-group">
         <label>
-         
           <select
             name="Doctor_Name"
             value={formData.Doctor_Name}

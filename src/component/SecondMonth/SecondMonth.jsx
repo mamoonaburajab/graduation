@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SecondMoth.css'; // Import the CSS file for styling
 
-const SecondMonthForm = () => {
+const SecondMonthForm = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
     IPV: false,
     IPV_ID: '',
@@ -26,20 +26,18 @@ const SecondMonthForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend
-    console.log(formData);
+    handleSubmit('secondMonth', formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={onSubmit} className="form-container">
       <div className="form-group">
         <label>
           IPV:
           <input
-          className='checkbox'
-
+            className="checkbox"
             type="checkbox"
             name="IPV"
             checked={formData.IPV}

@@ -1,41 +1,39 @@
-import React, { useState } from 'react';
-import './SixthMonth.css'; // Import the CSS file for styling
+import React, { useState } from "react";
+import "./SixthMonth.css"; // Import the CSS file for styling
 
-const SixthMonthForm = () => {
+const SixthMonthForm = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
     OPV: false,
-    OPV_ID: '',
+    OPV_ID: "",
     Rota_Virus: false,
-    Rota_Virus_ID: '',
+    Rota_Virus_ID: "",
     Penta: false,
-    Penta_ID: '',
-    Doctor_Name: ''
+    Penta_ID: "",
+    Doctor_Name: "",
   });
 
-  const doctors = ['د. سميث', 'د. جونسون', 'د. لي']; // Example list of doctors
+  const doctors = ["د. سميث", "د. جونسون", "د. لي"]; // Example list of doctors
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend
-    console.log(formData);
+    handleSubmit("sixthMonth", formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={onSubmit} className="form-container">
       <div className="form-group">
         <label>
           OPV:
           <input
-          className='checkbox'
-
+            className="checkbox"
             type="checkbox"
             name="OPV"
             checked={formData.OPV}
@@ -115,7 +113,9 @@ const SixthMonthForm = () => {
           </select>
         </label>
       </div>
-      <button type="submit" className="submit-button">إرسال</button>
+      <button type="submit" className="submit-button">
+        إرسال
+      </button>
     </form>
   );
 };
