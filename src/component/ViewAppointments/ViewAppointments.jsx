@@ -1,108 +1,186 @@
-import React from "react";
-import { Space, Table, Tag, Button } from "antd";
+import React, { useEffect, useState } from "react";
+import { Space, Table, Tag, Button, message, Tabs } from "antd";
 import "./ViewAppointments.css";
 import NavbarM from "../navbarMom/NavbarM";
+import axios from "axios";
 
-const handleDelete = (key) => {
-  console.log("Deleted item with key:", key);
-  // Implement deletion logic here
+// Helper function to format dates
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US"); // Adjust the locale and options as needed
 };
 
-const handleEdit = (key) => {
-  console.log("Edited item with key:", key);
-  // Implement edit logic here
+// Helper function to get the day of the week
+const getDayOfWeek = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("ar-EG", { weekday: "long" }); // 'ar-EG' for Arabic day names
 };
 
-const columns = [
-  {
-    title: 'الإجراءات', // Actions
-    key: 'actions',
-    dataIndex: 'actions',
-    render: (_, record) => (
-      <Space size="middle">
-        <Button type="link" onClick={() => handleDelete(record.key)}>حذف</Button>
-      </Space>
-    ),
-    fixed: 'left', // This will fix the column to the left
-  },
-  {
-    title: "حالة الموعد",
-    key: "tags",
-    dataIndex: "tags",
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: "اليوم",
-    dataIndex: "day",
-    key: "day",
-  },
-  {
-    title: "التاريخ",
-    dataIndex: "date",
-    key: "date",
-  },
-  {
-    title: "العمر",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "اسم الطفل",
-    dataIndex: "name",
-    key: "name",
-    align: "right",
-    render: (text) => <div>{text}</div>,
-  },
-];
+const getStatusTag = (status) => {
+  switch (status) {
+    case 0:
+      return <Tag color="volcano">ملغاة</Tag>; // Cancelled
+    case 1:
+      return <Tag color="green">مكتملة</Tag>; // Done
+    default:
+      return <Tag color="geekblue">قادم</Tag>; // Upcoming
+  }
+};
 
-const data = [
-  {
-    key: "1",
-    name: "جون براون",
-    age: 10,
-    day: "الاحد",
-    date: "10/5/2020",
-    tags: ["تم"],
-  },
-  {
-    key: "2",
-    name: "جيم جرين",
-    age: 12,
-    day: "الاحد",
-    date: "10/5/2020",
-    tags: ["ملغي"],
-  },
-  {
-    key: "3",
-    name: "جو بلاك",
-    age: 4,
-    date: "10/5/2020",
-    day: "الاحد",
-    tags: ["تم"],
-  },
-];
+const ViewAppointments = () => {
+  const [appointments, setAppointments] = useState({
+    upcomingAppointments: [],
+    pastAppointments: [],
+  });
+  const [activeTab, setActiveTab] = useState("upcoming"); // State to manage the active tab
+  const motherId = localStorage.getItem("userId"); // Assuming mother's ID is stored in local storage
 
-const ViewAppointments = () => (
-  <div>
-    <NavbarM/>
-    <div className="table-container">
-      <Table columns={columns} dataSource={data} scroll={{ x: 1000 }} />
+  useEffect(() => {
+    const fetchAppointments = async () => {
+      try {
+        const response = await axios.post(
+          `http://localhost:4504/Mother/ViewApp`,
+          { motherId } // Sending motherId in the request body
+        );
+        const formattedData = {
+          upcomingAppointments: response.data.upcomingAppointments.map(
+            (appointment) => ({
+              ...appointment,
+              date: formatDate(appointment.date),
+              day: getDayOfWeek(appointment.date),
+              time: appointment.Time, // Assuming time is in the format "HH:MM:SS"
+              status: appointment.status, // Adding status
+            })
+          ),
+          pastAppointments: response.data.pastAppointments.map(
+            (appointment) => ({
+              ...appointment,
+              date: formatDate(appointment.date),
+              day: getDayOfWeek(appointment.date),
+              time: appointment.Time, // Assuming time is in the format "HH:MM:SS"
+              status: appointment.status, // Adding status
+            })
+          ),
+        };
+        setAppointments(formattedData);
+      } catch (error) {
+        console.error("Error fetching appointments:", error);
+      }
+    };
+
+    fetchAppointments();
+  }, [motherId]);
+
+  const handleDelete = async (key) => {
+    try {
+      await axios.delete(`http://localhost:4504/Mother/ViewApp/${key}`);
+      message.success("Appointment deleted successfully");
+      setAppointments((prevAppointments) => ({
+        ...prevAppointments,
+        upcomingAppointments: prevAppointments.upcomingAppointments.filter(
+          (appointment) => appointment.id !== key
+        ),
+        pastAppointments: prevAppointments.pastAppointments.filter(
+          (appointment) => appointment.id !== key
+        ),
+      }));
+    } catch (error) {
+      console.error("Error deleting appointment:", error);
+      message.error("Failed to delete appointment");
+    }
+  };
+
+  const upcomingColumns = [
+    {
+      title: "الإجراءات", // Actions
+      key: "actions",
+      dataIndex: "actions",
+      render: (_, record) => (
+        <Space size="middle">
+          <Button type="link" onClick={() => handleDelete(record.id)}>
+            حذف
+          </Button>
+        </Space>
+      ),
+      fixed: "left", // This will fix the column to the left
+    },
+    {
+      title: "حالة الموعد",
+      key: "status",
+      dataIndex: "status",
+      render: (status) => getStatusTag(status),
+    },
+    {
+      title: "الوقت",
+      dataIndex: "time",
+      key: "time",
+    },
+    {
+      title: "اليوم",
+      dataIndex: "day",
+      key: "day",
+    },
+    {
+      title: "التاريخ",
+      dataIndex: "date",
+      key: "date",
+    },
+  ];
+
+  const pastColumns = [
+    {
+      title: "حالة الموعد",
+      key: "status",
+      dataIndex: "status",
+      render: (status) => getStatusTag(status),
+    },
+    {
+      title: "الوقت",
+      dataIndex: "time",
+      key: "time",
+    },
+    {
+      title: "اليوم",
+      dataIndex: "day",
+      key: "day",
+    },
+    {
+      title: "التاريخ",
+      dataIndex: "date",
+      key: "date",
+    },
+  ];
+
+  return (
+    <div className="container">
+      <NavbarM />
+      <div className="tabs-container">
+        <Tabs defaultActiveKey="upcoming" onChange={setActiveTab}>
+          <Tabs.TabPane tab="المواعيد القادمة" key="upcoming">
+            <Table
+              columns={upcomingColumns}
+              dataSource={appointments.upcomingAppointments}
+              scroll={{ x: 1000 }}
+              rowKey="id"
+              loading={!appointments.upcomingAppointments.length} // Show loading indicator until data is loaded
+            />
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="المواعيد السابقة" key="past" className="">
+            <Table
+              columns={pastColumns}
+              dataSource={appointments.pastAppointments}
+              scroll={{ x: 1000 }}
+              rowKey="id"
+              loading={!appointments.pastAppointments.length} // Show loading indicator until data is loaded
+            />
+          </Tabs.TabPane>
+        </Tabs>
+      </div>
+      <div className="table-container">
+        {/* Empty div to maintain the structure */}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ViewAppointments;

@@ -45,21 +45,19 @@ const AddArticlePage = lazy(() =>
 const ChildInfoPage = lazy(() =>
   import("../pages/Doctor/ChildInfoPage/ChildInfoPage")
 );
-const Admin = lazy(() =>
-  import("../pages/Admin/Admin")
-);
+const Admin = lazy(() => import("../pages/Admin/Admin"));
 const VacDoctorPage = lazy(() =>
   import("../pages/Doctor/VacDoctorPage/VacDoctorPage")
 );
 const ComparisonChildPage = lazy(() =>
   import("../pages/Mother/ComparisonChildPage/ComparisonChildPage")
 );
-
+const ForgotPassword = lazy(() => import('../component/LoginForm/ForgotPassword'));
 const routes = [
   { path: "/", element: <Guast /> },
   { path: "/login", element: <Login /> },
   { path: "/mother/home", element: <Home /> },
-  { path:"/mother/MotherChildCard/Note/:childId", element: <Notes/>  },
+  { path: "/mother/MotherChildCard/Note/:childId", element: <Notes /> },
   { path: "/mother/MotherChildCard/Vac/:childId", element: <Vac /> },
   { path: "/doctor/home", element: <HomeD /> },
   { path: "/doctor/child", element: <Child /> },
@@ -101,6 +99,7 @@ const routes = [
     path: "/mother/MotherChildCard/childCard/ComparisonChild",
     element: <ComparisonChildPage />,
   },
+  { path: "/forgot-password", element: <ForgotPassword /> },
 ];
 
 export default routes;

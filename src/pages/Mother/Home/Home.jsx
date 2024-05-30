@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from "react";
-import "./Home.css";
 import Slider from "../../../component/slider/Slider";
 import Footer1 from "../../../component/Footer/Footer1";
 import NavbarM from "../../../component/navbarMom/NavbarM";
 import CardArticle from "../../../component/ArticleD/CardArticle";
+import "./Home.css";
 
 const Home = () => {
-  const [articles, setArticles] = useState([]); // State to hold articles
+  const [articles, setArticles] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:4804/api/Mother/home") // Adjusted to correct port and endpoint
+    fetch("http://localhost:4804/api/Mother/home")
       .then((response) => response.json())
       .then((data) => {
-        setArticles(data);
+        console.log("Fetched articles:", data); // Debugging line
+        if (Array.isArray(data)) {
+          setArticles(data);
+        } else {
+          console.error("Fetched data is not an array:", data);
+          setError(data.error || "Unknown error occurred");
+        }
       })
-      .catch((error) => console.error("Error fetching articles:", error));
+      .catch((error) => {
+        console.error("Error fetching articles:", error);
+        setError("Failed to fetch articles");
+      });
   }, []);
 
   return (
@@ -32,20 +42,23 @@ const Home = () => {
         <div>
           <Slider />
         </div>
-        <div className="articleCard">
-          {articles.map((article) => (
-            <CardArticle
-              key={article.id}
-              title={article.Title}
-              paragraph={article.text}
-              image={article.image}
-              Link={article.Link}
-            />
-          ))}
-        </div>
-        <div>
-          <Footer1 />
-        </div>
+        {error ? (
+          <div className="error-message">Error: {error}</div>
+        ) : (
+          <div className="articleCard">
+            {articles.map((article) => (
+              <CardArticle
+                key={article.ID}
+                title={article.Title}
+                paragraph={article.text}
+                image={article.image}
+                Link={article.Link}
+              />
+            ))}
+          </div>
+        )}
+        <div></div>
+        <Footer1 />
       </div>
     </div>
   );

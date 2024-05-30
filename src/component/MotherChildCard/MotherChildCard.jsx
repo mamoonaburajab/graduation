@@ -4,6 +4,7 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import NavbarM from "../navbarMom/NavbarM";
 import "./MotherChildCard.css";
+import Footer1 from "../Footer/Footer1";
 
 function MotherChildCard() {
   const [childInfo, setChildInfo] = useState([]);
@@ -106,6 +107,8 @@ function MotherChildCard() {
           </Card>
         ))}
       </div>
+      <Footer1/>
+
     </div>
   );
 }

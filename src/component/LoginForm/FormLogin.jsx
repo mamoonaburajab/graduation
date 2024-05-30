@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./FormLogin.css";
 
 const LoginForm = () => {
@@ -18,31 +18,14 @@ const LoginForm = () => {
         username,
         password,
       });
-      console.log("Login response:", response.data); // Debugging output
       if (response.data.success) {
         // Set items in localStorage
         localStorage.setItem("userId", response.data.userId);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role);
 
-        // Debugging with setTimeout to check storage
-        setTimeout(() => {
-          console.log(
-            "Stored userId (after delay):",
-            localStorage.getItem("userId")
-          );
-          console.log(
-            "Stored token (after delay):",
-            localStorage.getItem("token")
-          );
-          console.log(
-            "Stored role (after delay):",
-            localStorage.getItem("role")
-          );
-
-          // Navigate to the home page of the user's role
-          navigate(`/${response.data.role}/home`);
-        }, 10); // 1-second delay to ensure localStorage is updated
+        // Navigate to the home page of the user's role
+        navigate(`/${response.data.role}/home`);
       } else {
         alert("Authentication failed: " + response.data.message);
       }
@@ -85,13 +68,12 @@ const LoginForm = () => {
           </Button>
         </Form.Item>
         <Form.Item className="gaust-btn">
-          <Button
-          className="gaust"
-          href="/guast"
-          type="primary"
-          >
+          <Button className="gaust" href="/guast" type="primary">
             المتابعة كضيف{" "}
           </Button>
+        </Form.Item>
+        <Form.Item className="gaust-btn">
+          <Link className="forget" to="/forgot-password">نسيت كلمة المرور؟</Link>
         </Form.Item>
       </Form>
     </div>

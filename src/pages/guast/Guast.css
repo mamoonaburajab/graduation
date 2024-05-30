@@ -26,6 +26,13 @@
   }
   
   .articleCard > div {
-    flex: 1 1 300px; /* Adjust based on your layout preference */
+    /* flex: 1 1 300px; Adjust based on your layout preference */
+  }
+  @media (max-width: 768px) {
+ 
+    .articleCard{
+      margin-right: 10px;
+    }
+    
   }
   

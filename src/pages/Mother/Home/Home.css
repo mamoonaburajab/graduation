@@ -9,6 +9,8 @@
   justify-content: flex-end;
   flex-wrap: wrap;
   margin-right: 80px;
+  margin-top: 30px;
+  
 }
 .nav-link{
   height: 50px;

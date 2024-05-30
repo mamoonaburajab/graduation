@@ -1,4 +1,3 @@
-// Appointment.js
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -36,7 +35,6 @@ const formatDate = (dateString) => {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-   
   }).format(date);
 };
 
@@ -50,7 +48,7 @@ const Appointment = () => {
   const fetchAppointments = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3121/api/Doctor/Appointments"
+        "http://localhost:3121/api/administrative_manager/AppointmentManager"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch appointments");
@@ -59,6 +57,27 @@ const Appointment = () => {
       setAppointments(data);
     } catch (error) {
       console.error("Error fetching appointments:", error);
+    }
+  };
+
+  const handleStatusChange = async (id, status) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3121/api/administrative_manager/AppointmentManager/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to update status");
+      }
+      fetchAppointments(); // Refresh the appointments list
+    } catch (error) {
+      console.error("Error updating status:", error);
     }
   };
 
@@ -74,13 +93,14 @@ const Appointment = () => {
             <StyledTableCell align="right">التاريخ</StyledTableCell>
             <StyledTableCell align="right">الوقت</StyledTableCell>
             <StyledTableCell align="right">سجل الطفل</StyledTableCell>
+            <StyledTableCell align="right">حالة الموعد</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {appointments.map((row) => (
             <StyledTableRow key={row.ID}>
               <StyledTableCell component="th" scope="row" align="right">
-                {row.child_name}
+                {row.mother_name}
               </StyledTableCell>
               <StyledTableCell align="right">
                 {formatDate(row.date)}
@@ -89,6 +109,22 @@ const Appointment = () => {
               <StyledTableCell align="right">
                 <Button variant="contained" color="primary">
                   سجل الطفل
+                </Button>
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                <Button
+                  variant="contained"
+                  style={{ backgroundColor: 'rgb(124, 21, 21)', color: 'white' }}
+                  onClick={() => handleStatusChange(row.ID, 0)}
+                >
+                  الغاء
+                </Button>
+                <Button
+                  variant="contained"
+                  style={{ backgroundColor: 'rgb(14, 77, 14)', margin:'0px 10px' , color: 'white', marginLeft: '10px' }}
+                  onClick={() => handleStatusChange(row.ID, 1)}
+                >
+                  اكتمل
                 </Button>
               </StyledTableCell>
             </StyledTableRow>

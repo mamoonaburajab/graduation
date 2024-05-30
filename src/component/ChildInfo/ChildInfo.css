@@ -49,24 +49,23 @@
     margin-right: 85px;
   }
   
-  /* General styles for all buttons within the container */
+
   .buttons-container button {
-    background-color: #092b4b;  /* A green background */
-    color: white;               /* White text color */
-    border: none;               /* No borders */
-    padding: 10px 20px;         /* Padding inside the button */
-    margin: 0 10px;             /* Margin between buttons */
-    text-align: center;         /* Center text within the button */
-    text-decoration: none;      /* No underline */
-    display: inline-block;      /* Allows margin to be applied correctly */
-    font-size: 16px;            /* Font size of the button text */
-    cursor: pointer;            /* Cursor appears as a pointer */
-    border-radius: 5px;         /* Rounded corners */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    background-color: #092b4b;  
+    color: white;               
+    border: none;              
+    padding: 10px 20px;        
+    margin: 0 10px;           
+    text-align: center;        
+    text-decoration: none;    
+    display: inline-block;      
+    font-size: 16px;         
+    cursor: pointer;           
+    border-radius: 5px;       
+    transition: background-color 0.3s; 
   }
   
-  /* Hover effect for buttons */
   .buttons-container button:hover {
-    background-color: #3e5e8e;  /* Darker shade of green when hovering */
+    background-color: #3e5e8e;  
   }
   

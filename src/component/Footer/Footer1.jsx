@@ -13,7 +13,7 @@ const SocialIcon = ({ icon: Icon }) => (
 );
 
 // Simplified Footer component
-const SimpleFooter = () => {
+const Footer1 = () => {
   return (
     <div className="footer">
       <div className="brand-section">
@@ -38,4 +38,4 @@ const SimpleFooter = () => {
   );
 };
 
-export default SimpleFooter;
+export default Footer1;

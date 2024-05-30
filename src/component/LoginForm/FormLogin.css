@@ -24,7 +24,10 @@
   display: flex;
   justify-content: center;
 }
-
+.forget{
+  text-decoration: none;
+  color: aliceblue;
+}
 @media (max-width: 768px) {
   .form {
     margin-right: 15px;

@@ -42,10 +42,10 @@ function ChildCard() {
             محيط الراس: {measurements.head_circumference}
           </ListGroup.Item>
           <ListGroup.Item>
-            فيتامين A+D: {measurements.vitamin_A_D}
+          {measurements.vitamin_A_D} :  فيتامين A+D
           </ListGroup.Item>
           <ListGroup.Item>
-            كبسولة فيتامين A: {measurements.vitamin_capsule_A}
+           {measurements.vitamin_capsule_A}: كبسولة فيتامين A 
           </ListGroup.Item>
           <ListGroup.Item>الحديد: {measurements.lron}</ListGroup.Item>
         </ListGroup>

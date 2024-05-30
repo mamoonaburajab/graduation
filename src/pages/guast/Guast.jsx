@@ -4,13 +4,26 @@ import "./Guast.css";
 
 const Guest = () => {
   const [articles, setArticles] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:4803/api/articles") // Full URL
+    fetch("http://localhost:4804/api/Mother/home")
       .then((response) => response.json())
-      .then((data) => setArticles(data))
-      .catch((error) => console.error("Error fetching articles:", error));
+      .then((data) => {
+        console.log("Fetched articles:", data); // Debugging line
+        if (Array.isArray(data)) {
+          setArticles(data);
+        } else {
+          console.error("Fetched data is not an array:", data);
+          setError(data.error || "Unknown error occurred");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching articles:", error);
+        setError("Failed to fetch articles");
+      });
   }, []);
+
 
   return (
     <div>
@@ -19,14 +32,14 @@ const Guest = () => {
           <a href="/login">تسجيل الدخول</a>
         </button>
       </nav>
-      <div className="article-card">
+      <div className="articleCard">
         {" "}
         {articles.map((article) => (
           <CardArticle
             key={article.ID}
             title={article.Title}
-            paragraph={article.text} 
-            image={article.image} 
+            paragraph={article.text}
+            image={article.image}
           />
         ))}
       </div>
@@ -34,4 +47,4 @@ const Guest = () => {
   );
 };
 
-export default Guest; 
+export default Guest;

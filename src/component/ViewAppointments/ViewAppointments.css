@@ -1,13 +1,111 @@
+/* ViewAppointments.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+ 
+  
+  
+}
+
+.tabs-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.ant-tabs {
+  direction: ltr; /* Ensure tabs are left-to-right */
+}
+
+.ant-tabs-nav .ant-tabs-tab {
+  font-size: 16px;
+}
+
 .table-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin-top: -80px;
+  width: 100%;
+}
+
+.ant-table {
+  width: 100%;
+  overflow-x: auto;
+}
+.ant-table thead  {
+  align-items: end;
+}
+.ant-table thead > tr > th,
+.ant-table tbody > tr > td {
+  text-align: start; /* Center-align table headers and cells */
+}
+
+.ant-table thead > tr > th {
+  background-color: #000;
+  color: #fff;
+}
+
+.ant-table tbody > tr > td {
+  font-size: 14px;
+}
+
+.ant-table-thead > tr > th,
+.ant-table tbody > tr > td {
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 15px;
   }
-  @media only screen and (max-width: 767px) {
-    .table-container {
-      margin-top: -180px;
-    }
-    
-  } 
+
+  .ant-tabs-nav .ant-tabs-tab {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    padding: 10px;
+  }
+
+  .ant-tabs-nav .ant-tabs-tab {
+    font-size: 14px;
+  }
+
+  .ant-table thead > tr > th,
+  .ant-table tbody > tr > td {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 5px;
+  }
+
+  .ant-tabs-nav .ant-tabs-tab {
+    font-size: 13px;
+  }
+
+  .ant-table thead > tr > th,
+  .ant-table tbody > tr > td {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .ant-tabs-nav .ant-tabs-tab {
+    font-size: 12px;
+  }
+
+  .ant-table thead > tr > th,
+  .ant-table tbody > tr > td {
+    font-size: 11px;
+  }
+}
