@@ -7,6 +7,7 @@ import {
   FaTwitterSquare,
 } from "react-icons/fa";
 import "./Footer.css";
+
 // Reusable SocialIcon component for displaying social media icons
 const SocialIcon = ({ icon: Icon }) => (
   <Icon className="social-icon" size={30} />
@@ -15,9 +16,7 @@ const SocialIcon = ({ icon: Icon }) => (
 // Simplified Footer component
 const Footer1 = () => {
   return (
-    <div className="footer">
-      <div className="brand-section">
-        <div className="social-icons-container">
+        <div className="social-icons-container footer ">
           <div className="icons">
             <SocialIcon icon={FaFacebookSquare} />
             <SocialIcon icon={FaInstagram} />
@@ -25,16 +24,12 @@ const Footer1 = () => {
             <SocialIcon icon={FaDribbbleSquare} />
           </div>
           <div>
-            {" "}
             <h1>جميع الحقوق &copy; محفوظة لوزارة الصحة الفلسطينية</h1>
           </div>
           <div>
-            {" "}
-            <h1 className="footer-text"> نسعى لتقديم العناية الفائقة لاطفالكم </h1>
+            <h1 className="footer-text">نسعى لتقديم العناية الفائقة لاطفالكم</h1>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 
